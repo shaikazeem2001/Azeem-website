@@ -10,19 +10,19 @@ const Hobbies = () => {
       </div>
       <div className="hobbie-card">
         <div className="card">
-          <img src="../../public/books.jpeg" alt="" />
+          <img src="/books.jpeg" alt="" />
           <div className="text-overlay">Fictional Books</div>
         </div>
         <div className="card">
-          <img src="../../public/pc.jpeg" alt="" />
+          <img src="/pc.jpeg" alt="" />
           <div className="text-overlay">Computer Science</div>
         </div>
         <div className="card">
-          <img src="../../public/games.jpeg" alt="" />
+          <img src="/games.jpeg" alt="" />
           <div className="text-overlay">Playing Games</div>
         </div>
         <div className="card">
-          <img src="../../public/movie.jpeg" alt="" />
+          <img src="/movie.jpeg" alt="" />
           <div className="text-overlay">Watching Movies</div>
         </div>
       </div>

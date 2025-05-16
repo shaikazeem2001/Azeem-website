@@ -9,7 +9,7 @@ const Profile = () => {
             <h1>Short Profile</h1>
           </div>
           <div className="profile-style">
-            <img src="../../public/computer.jpeg" className="pc-img" alt="" />
+            <img src="/computer.jpeg" className="pc-img" alt="" />
             <h2 className="pc-overlay">
               web devloper and student, <br />
               learing new technologies and <br /> backend
@@ -20,7 +20,7 @@ const Profile = () => {
                 <div className="taj-box">
                   <h1 className="h1-tag">INDIAN</h1>
                   <img
-                    src="../../public/tajmahal.png"
+                    src="/tajmahal.png"
                     className="taj-img"
                     alt=""
                   />
