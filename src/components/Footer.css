@@ -1,0 +1,76 @@
+
+.f-head{
+
+    font-size: x-large;
+}
+.c-btn {
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 1;
+    transition: border 0.3s ease;
+  }
+  
+  .c-btn:hover {
+    border-radius: 15px;
+
+    border-image: linear-gradient(120deg, #331021, #593b76, #331021);
+    border-image-slice: 1;
+    animation: borderMove 1.2s linear infinite;
+  }
+  
+  @keyframes borderMove {
+    0% {
+      border-image-source: linear-gradient(120deg, #331021, #593b76, #331021);
+    }
+    50% {
+      border-image-source: linear-gradient(480deg, #331021, #593b76, #331021);
+    }
+    100%{
+        border-image-source: linear-gradient(480deg, #411128, #3d1e5b, #501632);
+
+    }
+  }
+  
+  .footer {
+    display: flex;
+    flex-direction: column; /* stack items vertically */
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    height: 50vh;           /* fill full viewport height */
+    gap: 30px;               /* spacing between children */
+  }
+  
+.peer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.p-h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: x-large;
+  padding: 5px 5px;
+  height: 50px;
+  width: 370px;
+  border: 2px solid #07FF99;
+  border-radius: 30px;
+  color: #07FF99;
+}
+/* .p-h1:hover{
+  border-radius: 30px;
+
+  border-image: linear-gradient(120deg, #331021, #593b76, #331021);
+  border-image-slice: 1;
+} */

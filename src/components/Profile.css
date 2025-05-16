@@ -1,0 +1,194 @@
+.profile-container{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .profile-style {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .pc-img {
+    width: 90%;
+    height: auto;
+    margin-left: 0;
+  }
+
+  .pc-overlay {
+    top: 20px;
+    left: 30px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .card-stack-container {
+    align-items: center;
+    width: 100%;
+  }
+
+  .card1,
+  .stack {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .heading h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .pc-overlay {
+    font-size: 1rem;
+    left: 20px;
+  }
+
+  .ul-tag {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ul-tag li {
+    min-width: auto;
+    width: 80%;
+  }
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pc-img{
+    width: 400px;
+    height: 600px;
+    margin-left: 90px;
+    opacity: 0.5;
+    border-radius: 20px;
+    transition: transform 0.3s ease, scale 0.3s ease;
+}
+.pc-img:hover{
+    transform: translateX(10px);
+}
+.profile-style{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+    
+}
+
+.pc-overlay{
+    position: absolute;
+    transition: transform 0.3s ease; /* optional: if you want the card itself to animate */
+
+    top: 2px;
+    left: 110px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+/*  */
+.h1-tag{
+    margin-left: 20px;
+}
+.li-tag{
+    margin-left: 20px;
+    font-size: 1rem;
+}
+.taj-img{
+    max-width: 70px;
+    max-height: 100px;
+}
+.taj-box{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+.card1 {
+    border-radius: 20px;
+    background: linear-gradient(195deg, #1f1f1f, #2d2d2d);
+    max-height: 300px;
+    padding: 20px;
+    transition: transform 0.3s ease; /* optional: if you want the card itself to animate */
+  }
+  .card1:hover{
+  transform: scale(1.05);
+  }
+  
+  .card1 h1,
+  .card1 h2,
+  .card1 li {
+    transition: transform 0.3s ease, margin-left 0.3s ease; /* smooth transition */
+  }
+  
+  /* Hover effect: move text slightly to the right */
+  .card1:hover h1,
+  .card1:hover h2,
+  .card1:hover li {
+    margin-left: 30px;
+    transform: translateX(10px);
+  }
+  .pc-overlay:hover {
+    transform: translateX(10px);
+
+  }
+  .card-stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* optional: adds space between card and stack */
+  }
+  .stack {
+    border-radius: 20px;
+    background: linear-gradient(195deg, #1f1f1f, #2d2d2d);
+    padding: 20px;
+    width: 450px;
+    height: 250px;
+    transition: transform 0.3s ease;
+    
+  }
+  .stack:hover li{
+    margin-left: 10px;
+    transform: translateX(10px);
+    transition: transform 0.3s ease;
+  }
+  .stack h1 {
+    color: white;
+    margin-bottom: 15px;
+  }
+  .stack:hover {
+    transform: scale(1.05); /* slightly enlarges the div */
+  }
+  
+  .ul-tag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .ul-tag li {
+    background-color: linear-gradient(135deg, #16e41d, #0e8030, #0c7c4b);
+    color: white;
+    
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 100px;
+    box-shadow: 0 0 10px #01FE98;
+    transition: transform 0.3s ease;
+  }
+  
+  .ul-tag li:hover {
+    transform: scale(1.05);
+  }
+  

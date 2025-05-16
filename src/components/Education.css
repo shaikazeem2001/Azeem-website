@@ -1,0 +1,38 @@
+.work{
+    display: flex;
+    flex-direction: row;
+    margin-left: 80px;
+    margin-right: 80px;
+    gap: 20px;
+    left: 10px;
+    
+
+  }
+  .work-card{
+    border-radius: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #1f1f1f, #2d2d2d);
+    border: 1px solid #035c17;
+    color: white;
+  }
+  .work-card:hover{
+    background-color: #01FE98;
+  }
+  .edu-img{
+    background-color: #01FE98;
+    border: 2px solid white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  .edu-text{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  .edu-ava {
+    margin-top: 100px; /* or whatever space you want */
+  }
+  

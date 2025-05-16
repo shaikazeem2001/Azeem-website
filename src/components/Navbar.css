@@ -1,0 +1,92 @@
+.nav {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    font-size: 20px;
+  }
+  @media (max-width:310px) {
+    .nav{
+      display: flex;
+      flex-direction: column;
+
+    }
+    .nav-name{
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-links{
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+  }
+  @media (max-width:750px) {
+    .nav{
+      display: flex;
+      flex-direction: column;
+
+    }
+    .nav-name{
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-links{
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+  }
+  
+  /* Left side: name/logo */
+  .nav-name a{
+    color: #01FE98;
+    font-size: 45px;
+    font-weight: bold;
+  }
+ /* Left side: name/logo */
+.nav-name a {
+    color: #01FE98;
+    font-size: 45px;
+    font-weight: bold;
+    position: relative; /* REQUIRED for ::after to work */
+    text-decoration: none;
+  }
+  
+  /* Animated underline */
+  .nav-name a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #01FE98;
+    transition: width 0.4s ease;
+  }
+  
+  /* On hover, grow the underline */
+  .nav-name a:hover::after {
+    width: 100%;
+  }
+  
+  /* All NavLink styles */
+  .nav-links a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .nav-links {
+    display: flex;
+    gap: 30px; /* Increase or decrease based on your preference */
+  }
+  
+  /* Active NavLink */
+  .nav-links a.active {
+    color: #01FE98;
+    border-bottom: 2px solid #01FE98;
+  }
+  
+  

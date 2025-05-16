@@ -1,0 +1,247 @@
+.hero-container {
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+  background-color: #1C1C22;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 90px 90px;
+  color: white;
+  flex-wrap: wrap;
+}
+
+/* Tablet and small desktop */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .metrics {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* .avatar-wrapper,
+  .glow-ring,
+  .avatar-animation > div {
+    width: 300px !important;
+    height: 300px !important;
+  } */
+
+  .name2 {
+    font-size: 40px;
+  }
+
+  .main-metric {
+    font-size: 28px;
+  }
+
+  .sub-metric {
+    font-size: 16px;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 450px) {
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .avatar-wrapper,
+  .glow-ring,
+  .avatar-animation > div {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .name2 {
+    font-size: 32px;
+  }
+
+  .main-metric {
+    font-size: 22px;
+  }
+
+  .sub-metric {
+    font-size: 14px;
+  }
+
+  .p {
+    font-size: 16px;
+  }
+
+  .icons {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: left;
+  margin-left: 100px;
+  gap: 10px;
+}
+
+.p {
+  font-size: 20px;
+  color: rgb(234, 238, 241);
+}
+
+.name {
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+
+.name2 {
+  color: #01FE98;
+  font-size: 60px;
+}
+
+.icons {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.icons img {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background-color: #01FE98;
+  border: 2px solid #ffffff50;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.icons img:hover {
+  transform: scale(1.2);
+}
+
+.resume-btn {
+  background-color: transparent;
+  color: #01FE98;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 40px;
+  border: 2px solid #01FE98;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.resume-btn:hover {
+  color: black;
+  background-color: #01FE98;
+  transform: scale(1.05);
+}
+
+.resume-btn img {
+  width: 18px;
+  height: 18px;
+  filter: invert(75%) sepia(100%) saturate(500%) hue-rotate(100deg);
+  transition: filter 0.3s ease;
+}
+
+.resume-btn:hover img {
+  filter: invert(0%);
+}
+
+.metrics {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.metric-wrapper {
+  text-align: center;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.main-metric {
+  font-size: 35px;
+  color: #01FE98;
+}
+
+.sub-metric {
+  font-size: 20px;
+  color: #ccc;
+}
+
+.avatar-wrapper {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.avatar-animation {
+  width: 100%;
+  max-width: 4000px;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+
+.avatar-animation > div {
+  width: 500px !important;
+  height: 100% !important;
+}
+
+.glow-ring {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(44, 159, 113, 0.3) 0%, rgba(1,254,152,0) 70%);
+  animation: pulseHalo 3s infinite ease-in-out;
+  border-radius: 80%;
+  z-index: 0;
+  filter: blur(20px);
+}
+
+@keyframes pulseHalo {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
