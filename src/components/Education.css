@@ -35,4 +35,13 @@
   .edu-ava {
     margin-top: 100px; /* or whatever space you want */
   }
-  
+  @media (max-width:450px) {
+    .work{
+      overflow: scroll;
+      size: 30px;
+      margin-left: 20px;
+    }
+    .work::-webkit-scrollbar{
+      display: none;
+    }
+  }

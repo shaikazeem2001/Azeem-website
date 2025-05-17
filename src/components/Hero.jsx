@@ -34,13 +34,13 @@ const Hero = () => {
           <div className="metric-wrapper">
             <h1 className="main-metric">10</h1>
             <p className="sub-metric">
-              projects worked <br />
+              projects <br /> worked <br />
               on
             </p>
           </div>
           <div className="metric-wrapper">
             <h1 className="main-metric">5</h1>
-            <p className="sub-metric">projects deployed</p>
+            <p className="sub-metric">projects <br />deployed</p>
           </div>
         </div>
       </div>

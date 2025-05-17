@@ -6,7 +6,7 @@
     padding: 20px 40px;
     font-size: 20px;
   }
-  @media (max-width:310px) {
+  @media (max-width:310p) {
     .nav{
       display: flex;
       flex-direction: column;
@@ -88,5 +88,33 @@
     color: #01FE98;
     border-bottom: 2px solid #01FE98;
   }
+  /* Hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+  @media (max-width: 750px) {
+    .hamburger {
+      margin-left: 200px;
+      display: block;
+    }
   
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      top: 70px;
+      right: 10px;
+      background-color: #121212;
+      padding: 20px;
+      border-radius: 10px;
+    }
   
+    .nav-links.open {
+      display: flex;
+    }
+  }
