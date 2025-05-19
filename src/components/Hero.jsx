@@ -14,14 +14,19 @@ const Hero = () => {
         <h1 className="name2">Azeem Shaik</h1>
 
         <div className="icons">
-          <button className="resume-btn">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="resume-btn"
+          >
             Resume
             <img src="/download.png" alt="Download" />
-          </button>
-          <a href="https://www.linkedin.com/in/shaik-azeem-817886233/">
+          </a>
+          <a href="https://www.linkedin.com/in/shaik-azeem-817886233/" target="_blank" rel="noopener noreferrer"> 
             <img src="/linkedin.png" alt="linkedin" />
           </a>
-          <a href="https://github.com/shaikazeem2001">
+          <a href="https://github.com/shaikazeem2001"  target="_blank" rel="noopener noreferrer">
             <img src="/github.png" alt="github" />
           </a>
         </div>
@@ -40,7 +45,10 @@ const Hero = () => {
           </div>
           <div className="metric-wrapper">
             <h1 className="main-metric">5</h1>
-            <p className="sub-metric">projects <br />deployed</p>
+            <p className="sub-metric">
+              projects <br />
+              deployed
+            </p>
           </div>
         </div>
       </div>
@@ -49,11 +57,11 @@ const Hero = () => {
       <div className="avatar-wrapper">
         <div className="glow-ring"></div>
         <div className="avatar-animation">
-        <DotLottieReact
-      src="https://lottie.host/f480a02b-7097-450e-9744-21870717c86f/DJw4XwGLKF.lottie"
-      loop
-      autoplay
-    />
+          <DotLottieReact
+            src="https://lottie.host/f480a02b-7097-450e-9744-21870717c86f/DJw4XwGLKF.lottie"
+            loop
+            autoplay
+          />
         </div>
       </div>
     </div>

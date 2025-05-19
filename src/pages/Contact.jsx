@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Contact.css";
 import Navbar from "../components/Navbar";
+import { motion } from "framer-motion";
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -47,6 +48,12 @@ const ContactForm = () => {
 
   return (
     <>
+    <motion.div
+      initial={{ opacity: 0, x: 30 }}
+      animate={{ opacity: 1.2, scale: 1 }}
+      exit={{ opacity: 0,x:-90 }}
+      transition={{ duration: 0.1 }}
+    >
       <Navbar />
       <div className="contact-container">
         <h2 className="contact-title">Contact Me</h2>
@@ -90,8 +97,8 @@ const ContactForm = () => {
               ></textarea>
             </div>
             <div className="mailid">
-              <img src="../../public/mail.gif" alt="" />
-              <h4>shaikazeemcse@gmail.com</h4>
+              <img src="/mail.png" alt="error" />
+              <email >shaikazeemcse@gmail.com</email>
             </div>
           </label>
           <button type="submit" disabled={status === "sending"}>
@@ -109,6 +116,7 @@ const ContactForm = () => {
           )}
         </form>
       </div>
+      </motion.div>
     </>
   );
 };

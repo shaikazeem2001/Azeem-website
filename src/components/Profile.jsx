@@ -11,8 +11,8 @@ const Profile = () => {
           <div className="profile-style">
             <img src="/computer.jpeg" className="pc-img" alt="" />
             <h2 className="pc-overlay">
-              web devloper and student, <br />
-              learing new technologies and <br /> backend
+              web devloper and <br /> student, <br />
+              learing new <br /> technologies and <br /> backend
             </h2>
 
             <div className="card-stack-container">
