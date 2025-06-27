@@ -3,7 +3,8 @@ Azeem's Portfolio
 Live Demo
 Check out the live version of the portfolio here:   
 
-azeem-delta.vercel.app
+[azeem-delta.vercel.app](https://azeem-delta.vercel.app/)
+
 Features
 
 Responsive Design: Optimized for both desktop and mobile devices.
