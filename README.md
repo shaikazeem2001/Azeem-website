@@ -1,7 +1,8 @@
 Azeem's Portfolio
-Welcome to my personal portfolio website! This project showcases my skills, projects, and experience as a developer. It is designed to be visually appealing, responsive, and interactive, highlighting my work in web development.
-Live Demo
-Check out the live version of the portfolio here: azeem-delta.vercel.app
+#Welcome to my personal portfolio website! This project showcases my skills, projects, and experience as a developer. It is designed to be visually appealing, responsive, and interactive, highlighting my work in web development.
+#Live Demo
+#Check out the live version of the portfolio here:   
+#azeem-delta.vercel.app
 Features
 
 Responsive Design: Optimized for both desktop and mobile devices.
