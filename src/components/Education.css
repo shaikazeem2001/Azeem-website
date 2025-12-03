@@ -1,47 +1,146 @@
-.work{
-    display: flex;
-    flex-direction: row;
-    margin-left: 80px;
-    margin-right: 80px;
-    gap: 20px;
-    left: 10px;
-    
+.education-section {
+  max-width: 900px;
+  margin: var(--spacing-section) auto;
+  padding: 0 150px;
+  position: relative;
+}
 
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  justify-content: center;
+}
+
+.icon-box {
+  background: #01FE98;
+  padding: 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(1, 254, 152, 0.4);
+}
+
+.section-title {
+  font-size: var(--fz-heading);
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+
+/* Vertical line for timeline */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #01FE98, transparent);
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 2rem;
+  margin-left: 3rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -3rem; /* Aligns with the vertical line */
+  top: 2.5rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #000;
+  border: 3px solid #01FE98;
+  box-shadow: 0 0 10px rgba(1, 254, 152, 0.5);
+  z-index: 1;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.school-name {
+  font-size: var(--fz-xxl);
+  color: white;
+  margin: 0;
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+}
+
+.degree {
+  font-size: var(--fz-lg);
+  color: #8892b0;
+  margin: 0;
+  font-weight: 400;
+  line-height: var(--line-height-normal);
+}
+
+.meta-info {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.meta-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #888;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+@media (max-width: 1080px) {
+  .education-section {
+    padding: 0 100px;
   }
-  .work-card{
-    border-radius: 15px;
-    padding: 20px;
-    background: linear-gradient(135deg, #1f1f1f, #2d2d2d);
-    border: 1px solid #035c17;
-    color: white;
+}
+
+@media (max-width: 768px) {
+  .education-section {
+    padding: 0 50px;
   }
-  .work-card:hover{
-    background-color: #01FE98;
+  
+  .timeline-item {
+    padding: 1.5rem;
+    margin-left: 2rem;
   }
-  .edu-img{
-    background-color: #01FE98;
-    border: 2px solid white;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
+  
+  .timeline-container::before {
+    left: 16px;
   }
-  .edu-text{
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    align-items: center;
-    justify-content: center;
+  
+  .timeline-marker {
+    left: -2.5rem;
   }
-  .edu-ava {
-    margin-top: 100px; /* or whatever space you want */
+  
+  .school-name {
+    font-size: 1.2rem;
   }
-  @media (max-width:450px) {
-    .work{
-      overflow: scroll;
-      size: 30px;
-      margin-left: 20px;
-    }
-    .work::-webkit-scrollbar{
-      display: none;
-    }
-  }
+}

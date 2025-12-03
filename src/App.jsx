@@ -8,11 +8,14 @@ import Footer from './components/Footer';
 import Education from './components/Education';
 import Profile from './components/Profile';
 import Project from './components/Project';
+import AnimatedBackground from './components/Background';
+
 const App = () => {
 
   
   return (
-    <div>
+    <div className="relative min-h-screen text-white">
+      <AnimatedBackground />
       <Navbar />
       <Hero />
       <div className="page">

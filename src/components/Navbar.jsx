@@ -3,24 +3,53 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const navVariants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const linkVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
+  };
+
   return (
-    <div className="nav">
-      <div className="nav-name">
+    <motion.div 
+      className="nav"
+      initial="hidden"
+      animate="visible"
+      variants={navVariants}
+    >
+      <motion.div className="nav-name" variants={linkVariants}>
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           Azeem Shaik .
         </NavLink>
-      </div>
+      </motion.div>
       {/* Hamburger Icon */}
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </div>
-      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+      <motion.div 
+        className={`nav-links ${menuOpen ? "open" : ""}`}
+        variants={linkVariants}
+      >
       <NavLink to="/" onClick={() => setMenuOpen(false)}>Professional</NavLink>
 
         <NavLink
@@ -35,8 +64,8 @@ const Navbar = () => {
         >
           Contact
         </NavLink>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

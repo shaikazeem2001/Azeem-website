@@ -7,6 +7,8 @@ import { AnimatePresence } from 'framer-motion';
 import App from './App.jsx';
 import Personal from './pages/Personal.jsx';
 import Contact from './pages/Contact.jsx';
+import CustomCursor from './components/CustomCursor';
+import Background from './components/Background';
 import './index.css';
 
 const AnimatedRoutes = () => {
@@ -26,6 +28,8 @@ const AnimatedRoutes = () => {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
+      <Background />
+      <CustomCursor />
       <AnimatedRoutes />
     </BrowserRouter>
   </React.StrictMode>

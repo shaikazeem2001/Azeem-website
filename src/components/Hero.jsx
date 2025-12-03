@@ -1,19 +1,63 @@
 import React from "react";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Lottie from "lottie-react";
+import animationData from "../assets/coding-animation.json";
+import { motion } from "framer-motion";
 import "./Hero.css";
 
 const Hero = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+      },
+    },
+  };
+
+  const metricsVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 15,
+      },
+    },
+  };
+
   return (
     <div className="hero-container">
       {/* Left side: Content */}
-      <div className="hero-content">
-        <p className="p">Software Engineer</p>
-        <h1 className="name">
+      <motion.div 
+        className="hero-content"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <motion.p className="p" variants={itemVariants}>Software Engineer</motion.p>
+        <motion.h1 className="name" variants={itemVariants}>
           Hello I'm <br />
-        </h1>
-        <h1 className="name2">Azeem Shaik</h1>
+        </motion.h1>
+        <motion.h1 className="name2" variants={itemVariants}>Azeem Shaik</motion.h1>
 
-        <div className="icons">
+        <motion.div className="icons" variants={itemVariants}>
           <a
             href="/resume.pdf"
             target="_blank"
@@ -29,41 +73,53 @@ const Hero = () => {
           <a href="https://github.com/shaikazeem2001"  target="_blank" rel="noopener noreferrer">
             <img src="/github.png" alt="github" />
           </a>
-        </div>
+        </motion.div>
 
-        <div className="metrics">
-          <div className="metric-wrapper">
+        <motion.div 
+          className="metrics"
+          variants={containerVariants}
+        >
+          <motion.div className="metric-wrapper" variants={metricsVariants}>
             <h1 className="main-metric">24</h1>
             <p className="sub-metric">age</p>
-          </div>
-          <div className="metric-wrapper">
+          </motion.div>
+          <motion.div className="metric-wrapper" variants={metricsVariants}>
             <h1 className="main-metric">10</h1>
             <p className="sub-metric">
               projects <br /> worked <br />
               on
             </p>
-          </div>
-          <div className="metric-wrapper">
+          </motion.div>
+          <motion.div className="metric-wrapper" variants={metricsVariants}>
             <h1 className="main-metric">5</h1>
             <p className="sub-metric">
               projects <br />
               deployed
             </p>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
-      {/* Right side: Avatar */}
-      <div className="avatar-wrapper">
-        <div className="glow-ring"></div>
+      {/* Right side: Animation */}
+      <motion.div 
+        className="avatar-wrapper"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 80,
+          damping: 10,
+          delay: 0,
+        }}
+      >
         <div className="avatar-animation">
-          <DotLottieReact
-            src="https://lottie.host/f480a02b-7097-450e-9744-21870717c86f/DJw4XwGLKF.lottie"
-            loop
-            autoplay
+          <Lottie
+            animationData={animationData}
+            loop={true}
+            autoplay={true}
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
