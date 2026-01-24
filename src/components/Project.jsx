@@ -1,141 +1,88 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Briefcase, ExternalLink, Code2 } from 'lucide-react';
-import './Project.css';
+import React from "react";
+import "./Project.css";
+import { ExternalLink } from "lucide-react";
 
-const Project = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+const projects = [
+  {
+    title: "Burger Restaurant",
+    description:
+      "An interactive burger ordering platform that allows users to customize burgers, manage orders, and experience a smooth dashboard-driven UI.",
+    image: "./burger.gif",
+    link: "https://burger-pi-snowy.vercel.app",
+    tech: ["React", "JavaScript", "HTML", "CSS", "Firebase", "Redux"]
+  },
+  {
+    title: "E-Commerce Platform",
+    description:
+      "A full-stack e-commerce application with product browsing, cart management, and payment-ready architecture. Built with a modern UI and optimized performance.",
+    image: "/shopping.gif",
+    link: "https://e-commerce2-rust.vercel.app/",
+    tech: [
+      "React",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "Node.js",
+      "MongoDB",
+      "Stripe",
+      "Postman"
+    ]
+  },
+  {
+    title: "Weather Application",
+    description:
+      "A real-time weather application that fetches live data from APIs and presents it with a clean, responsive user interface.",
+    image: "/3dweather.gif",
+    link: "https://weatherapplication24.netlify.app/",
+    tech: ["React", "JavaScript", "HTML", "CSS", "Weather API"]
+  }
+];
 
-  const projects = [
-    {
-      title: "Weather App",
-      description: "A simple yet effective weather app with real-time data and beautiful UI",
-      image: "/3dweather.gif",
-      link: "",
-      tech: ["React", "API", "CSS"]
-    },
-    {
-      title: "Burger Builder",
-      description: "Customize and order your favorite burger with an interactive builder",
-      image: "/burger.gif",
-      link: "",
-      tech: ["React", "Firebase", "Redux"]
-    },
-    {
-      title: "Nike UI",
-      description: "A Nike-inspired e-commerce design with modern aesthetics",
-      image: "/nike.gif",
-      link: "",
-      tech: ["React", "Tailwind", "Framer"]
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 60, rotateX: -10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      transition: { 
-        type: "spring", 
-        stiffness: 80, 
-        damping: 15,
-        duration: 0.6
-      }
-    }
-  };
-
+const Projects = () => {
   return (
-    <div className="projects-section">
-      <motion.div 
-        className="projects-header"
-        initial={{ opacity: 0, y: -20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="icon-box">
-          <Briefcase size={32} color="#000" />
-        </div>
-        <h2 className="projects-title">Featured Projects</h2>
-      </motion.div>
+    <section className="projects-section" id="projects">
+      <h2 className="projects-title">Projects</h2>
 
-      <motion.div 
-        className="projects-grid"
-        ref={ref}
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
+      <div className="projects-grid">
         {projects.map((project, index) => (
-          <motion.div 
-            key={index}
+          <div
             className="project-card"
-            variants={cardVariants}
-            whileHover={{ 
-              y: -15,
-              scale: 1.03,
-              borderColor: "rgba(1, 254, 152, 0.6)",
-              boxShadow: "0 25px 50px rgba(1, 254, 152, 0.2)"
-            }}
-            style={{ perspective: 1000 }}
+            key={index}
+            onClick={() => window.open(project.link, "_blank")}
           >
-            <div className="project-image-wrapper">
-              <img src={project.image} alt={project.title} className="project-image" />
-              <div className="project-overlay">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1, rotate: 360 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                >
-                  <ExternalLink size={40} color="#01FE98" strokeWidth={2.5} />
-                </motion.div>
+            {project.image && (
+              <div className="project-image">
+                <img src={project.image} alt={project.title} />
               </div>
-            </div>
+            )}
+
             <div className="project-content">
-              <div className="project-header">
-                <Code2 size={20} color="#01FE98" />
-                <h3 className="project-title">{project.title}</h3>
-              </div>
-              <p className="project-description">{project.description}</p>
-              
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+
               <div className="tech-stack">
                 {project.tech.map((tech, i) => (
-                  <motion.span 
-                    key={i} 
-                    className="tech-tag"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                    transition={{ delay: 0.6 + i * 0.1 }}
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(1, 254, 152, 0.15)" }}
-                  >
+                  <span key={i} className="tech-badge">
                     {tech}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
 
-              <motion.a 
-                href={project.link} 
+              <div
                 className="project-link"
-                whileHover={{ x: 5 }}
-                whileTap={{ scale: 0.95 }}
+                onClick={(e) => e.stopPropagation()}
               >
-                View Project <ExternalLink size={16} />
-              </motion.a>
+                <a href={project.link} target="_blank" rel="noreferrer">
+                  View Project <ExternalLink size={16} />
+                </a>
+              </div>
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 };
 
-export default Project;
+export default Projects;
