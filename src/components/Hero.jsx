@@ -1,5 +1,5 @@
-import React from "react";
-import Lottie from "lottie-react";
+import React, { lazy, Suspense } from "react";
+const Lottie = lazy(() => import("lottie-react"));
 import animationData from "../assets/coding-animation.json";
 import { motion } from "framer-motion";
 import "./Hero.css";
@@ -87,11 +87,13 @@ const Hero = () => {
         }}
       >
         <div className="avatar-animation">
-          <Lottie
-            animationData={animationData}
-            loop={true}
-            autoplay={true}
-          />
+          <Suspense fallback={<div className="loading-fallback">Loading animation...</div>}>
+            <Lottie
+              animationData={animationData}
+              loop={true}
+              autoplay={true}
+            />
+          </Suspense>
         </div>
       </motion.div>
     </div>
