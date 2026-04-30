@@ -1,146 +1,112 @@
 .education-section {
-  max-width: 900px;
-  margin: var(--spacing-section) auto;
-  padding: 0 150px;
-  position: relative;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 4rem;
-  justify-content: center;
-}
-
-.icon-box {
-  background: #01FE98;
-  padding: 12px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 20px rgba(1, 254, 152, 0.4);
-}
-
-.section-title {
-  font-size: var(--fz-heading);
-  font-weight: 700;
-  color: white;
-  margin: 0;
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-tight);
+  padding: 100px 5%;
+  color: var(--text-primary);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .timeline-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 30px;
+  margin-top: 40px;
   position: relative;
 }
 
-/* Vertical line for timeline */
 .timeline-container::before {
   content: '';
   position: absolute;
-  left: 24px;
+  left: 31px;
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, #01FE98, transparent);
-  opacity: 0.3;
+  background: linear-gradient(to bottom, var(--accent-red), transparent);
+  opacity: 0.2;
 }
 
 .timeline-item {
   position: relative;
-  padding: 2rem;
-  margin-left: 3rem;
-  background: rgba(255, 255, 255, 0.02);
+  padding: 30px 40px 30px 80px;
+  background: var(--bg-card);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  cursor: pointer;
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  background: rgba(232, 72, 4, 0.05);
+  border-color: rgba(232, 72, 4, 0.2);
+  transform: translateX(10px);
 }
 
 .timeline-marker {
   position: absolute;
-  left: -3rem; /* Aligns with the vertical line */
-  top: 2.5rem;
+  left: 24px;
+  top: 35px;
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #000;
-  border: 3px solid #01FE98;
-  box-shadow: 0 0 10px rgba(1, 254, 152, 0.5);
-  z-index: 1;
-}
-
-.timeline-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  background: var(--bg-main);
+  border: 3px solid var(--accent-red);
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(232, 72, 4, 0.5);
 }
 
 .school-name {
-  font-size: var(--fz-xxl);
-  color: white;
-  margin: 0;
-  font-weight: 600;
-  line-height: var(--line-height-tight);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 5px;
 }
 
 .degree {
-  font-size: var(--fz-lg);
-  color: #8892b0;
-  margin: 0;
-  font-weight: 400;
-  line-height: var(--line-height-normal);
+  font-size: 1.1rem;
+  color: var(--accent-red);
+  margin-bottom: 15px;
 }
 
 .meta-info {
   display: flex;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
+  gap: 20px;
 }
 
 .meta-tag {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 0.9rem;
-  color: #888;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 4px 12px;
-  border-radius: 20px;
+  color: var(--text-secondary);
 }
 
 @media (max-width: 1080px) {
   .education-section {
-    padding: 0 100px;
+    padding: 100px 5%;
   }
 }
 
 @media (max-width: 768px) {
   .education-section {
-    padding: 0 50px;
+    padding: 80px 5%;
   }
   
   .timeline-item {
-    padding: 1.5rem;
-    margin-left: 2rem;
+    padding: 25px 25px 25px 60px;
   }
   
   .timeline-container::before {
-    left: 16px;
+    left: 21px;
   }
   
   .timeline-marker {
-    left: -2.5rem;
+    left: 14px;
   }
   
   .school-name {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+  
+  .meta-info {
+    flex-direction: column;
+    gap: 10px;
   }
 }

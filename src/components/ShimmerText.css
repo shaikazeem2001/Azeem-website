@@ -1,0 +1,39 @@
+.shimmer-wrapper {
+  display: inline-block;
+  --offset: 3ch;
+  --angle: 295deg;
+  --aurora: linear-gradient(
+    var(--angle),
+    transparent calc(50% - var(--offset)),
+    #a960ee,
+    #ff333d,
+    #ffcb57,
+    #90e0ff,
+    transparent calc(50% + var(--offset))
+  );
+  --place-color: rgba(255, 255, 255, 0.2);
+  --bg: var(--aurora) 0 0 / 300% 100% no-repeat border-box,
+      linear-gradient(var(--place-color), var(--place-color)) padding-box;
+}
+
+.shimmer-text {
+  margin: 0;
+  white-space: nowrap;
+  background: var(--bg);
+  animation: shimmer 3s infinite both ease-in-out;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  font-weight: 800;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  50%,
+  100% {
+    background-position: 0% 0;
+  }
+}

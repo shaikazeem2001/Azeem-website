@@ -1,121 +1,106 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { User, Code, Globe, MapPin } from "lucide-react";
+import { User, Code, Globe, MapPin, Briefcase } from "lucide-react";
 import "./Profile.css";
+import SkillCubes from "./SkillCubes";
 
 const Profile = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const techStack = [
-    "React.js",
-    "JavaScript",
-    "Node.js",
-    "MongoDB",
-    "HTML",
-    "CSS",
-    "Express",
-    "Git"
-  ];
-
-  const languages = ["English", "Hindi", "Telugu"];
+  const skills = {
+    languages: ["JavaScript (ES6+)", "Python", "HTML5", "CSS3/Sass"],
+    frontend: ["React.js", "Redux Toolkit", "Next.js", "Tailwind CSS", "Framer Motion"],
+    backend: ["Node.js", "Express.js", "REST APIs"],
+    databases: ["MongoDB", "Firebase", "PostgreSQL"],
+    tools: ["Git", "Docker", "Postman", "Vite", "VS Code"]
+  };
 
   return (
-    <div className="profile-section" ref={ref}>
-      <motion.div 
-        className="profile-header"
-        initial={{ opacity: 0, y: -20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="icon-box">
-          <User size={32} color="#000" />
-        </div>
-        <h2 className="profile-title">About Me</h2>
-      </motion.div>
-
-      <motion.div 
-        className="bento-grid"
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        {/* Bio Card */}
-        <motion.div 
-          className="bento-card bio-card"
-          whileHover={{ scale: 1.02, borderColor: "rgba(1, 254, 152, 0.3)" }}
+    <div className="profile-section" id="about" ref={ref}>
+      <div className="section-container">
+        {/* About Me Section */}
+        <motion.div
+          className="about-content"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="card-icon">
-            <Code size={24} color="#01FE98" />
+          <div className="section-header">
+            <div className="icon-box">
+              <User size={24} color="#000" />
+            </div>
+            <h2 className="section-title">About Me</h2>
           </div>
-          <h3>Web Developer & Student</h3>
-          <p>Passionate about learning new technologies and building modern web applications with a focus on backend development.</p>
-        </motion.div>
 
-        {/* Tech Stack Card */}
-        <motion.div 
-          className="bento-card tech-card"
-          whileHover={{ scale: 1.02, borderColor: "rgba(1, 254, 152, 0.3)" }}
-        >
-          <div className="card-header">
-            <Code size={20} color="#01FE98" />
-            <h3>Tech Stack</h3>
-          </div>
-          <div className="tech-badges">
-            {techStack.map((tech, index) => (
-              <motion.span 
-                key={index} 
-                className="tech-badge"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                transition={{ delay: 0.4 + index * 0.05 }}
-                whileHover={{ scale: 1.1, backgroundColor: "rgba(1, 254, 152, 0.2)" }}
-              >
-                {tech}
-              </motion.span>
-            ))}
+          <div className="bio-text">
+            <p>
+              I am a <strong>Master's in Computer Science</strong> student and an entry-level software engineer
+              driven by building high-performance, scalable web applications. My focus is on
+              creating seamless user experiences through clean code and efficient backend architectures.
+            </p>
+            <p>
+              I enjoy solving complex technical challenges and am currently looking for roles where I can
+              contribute to impactful projects while continuing to grow as a full-stack developer.
+              Based in <strong>India 🇮🇳</strong>, I am open to both remote and on-site opportunities.
+            </p>
           </div>
         </motion.div>
 
-        {/* Languages Card */}
-        <motion.div 
-          className="bento-card lang-card"
-          whileHover={{ scale: 1.02, borderColor: "rgba(1, 254, 152, 0.3)" }}
+        {/* Skills Section */}
+        <motion.div
+          className="skills-content"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="card-header">
-            <Globe size={20} color="#01FE98" />
-            <h3>Languages</h3>
+          <div className="section-header">
+            <div className="icon-box">
+              <Code size={24} color="#000" />
+            </div>
+            <h2 className="section-title">Technical Skills</h2>
           </div>
-          <div className="lang-list">
-            {languages.map((lang, index) => (
-              <motion.div 
-                key={index} 
-                className="lang-item"
-                initial={{ x: -20, opacity: 0 }}
-                animate={isInView ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-              >
-                <MapPin size={16} color="#01FE98" />
-                <span>{lang}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
-        {/* Location Card */}
-        <motion.div 
-          className="bento-card location-card"
-          whileHover={{ scale: 1.02, borderColor: "rgba(1, 254, 152, 0.3)" }}
-        >
-          <div className="location-content">
-            <MapPin size={32} color="#01FE98" />
-            <div>
-              <h4>Based in</h4>
-              <h3>India 🇮🇳</h3>
+          <SkillCubes />
+
+          <div className="skills-grid">
+            <div className="skill-category">
+              <h3><Globe size={18} /> Languages</h3>
+              <div className="skill-badges">
+                {skills.languages.map(skill => <span key={skill} className="skill-badge">{skill}</span>)}
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <h3><Code size={18} /> Frontend</h3>
+              <div className="skill-badges">
+                {skills.frontend.map(skill => <span key={skill} className="skill-badge">{skill}</span>)}
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <h3><Briefcase size={18} /> Backend</h3>
+              <div className="skill-badges">
+                {skills.backend.map(skill => <span key={skill} className="skill-badge">{skill}</span>)}
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <h3><MapPin size={18} /> Databases</h3>
+              <div className="skill-badges">
+                {skills.databases.map(skill => <span key={skill} className="skill-badge">{skill}</span>)}
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <h3><Briefcase size={18} /> Tools & Platforms</h3>
+              <div className="skill-badges">
+                {skills.tools.map(skill => <span key={skill} className="skill-badge">{skill}</span>)}
+              </div>
             </div>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };

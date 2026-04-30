@@ -4,19 +4,16 @@
 @tailwind utilities;
 
 @layer base {
-  /* CSS Variables for consistent spacing and typography */
   :root {
-    /* Font sizes */
     --fz-xxs: 12px;
     --fz-xs: 13px;
     --fz-sm: 14px;
     --fz-md: 16px;
     --fz-lg: 18px;
     --fz-xl: 20px;
-    --fz-xxl: 22px;
-    --fz-heading: 32px;
+    --fz-xxl: 24px;
+    --fz-heading: 36px;
     
-    /* Spacing */
     --spacing-xs: 8px;
     --spacing-sm: 12px;
     --spacing-md: 16px;
@@ -25,16 +22,28 @@
     --spacing-xxl: 48px;
     --spacing-section: 100px;
     
-    /* Line heights */
-    --line-height-tight: 1.3;
+    --line-height-tight: 1.2;
     --line-height-normal: 1.5;
     --line-height-relaxed: 1.7;
     
-    /* Letter spacing */
     --letter-spacing-tight: -0.5px;
     --letter-spacing-normal: 0;
     --letter-spacing-wide: 0.5px;
-    --letter-spacing-wider: 1px;
+
+    /* Theme Variables for Premium Developer Portfolio */
+    --bg-main: #050810;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --border-color: rgba(255, 255, 255, 0.08);
+
+    /* Accents */
+    --accent-primary: #B6FE01;
+    --accent-secondary: #B6FE01;
+    --accent-tertiary: #7B61FF;
+
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-muted: rgba(255, 255, 255, 0.4);
   }
   
   html {
@@ -43,45 +52,61 @@
   
   body {
     font-family: "Space Grotesk", "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #000000;
-    color: #ccd6f6; /* Softer slate color for better readability */
+    background: var(--bg-main);
+    color: var(--text-primary);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     font-size: var(--fz-xl);
-    line-height: var(--line-height-tight);
+    line-height: var(--line-height-normal);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
-  /* Responsive font size */
   @media (max-width: 768px) {
     body {
       font-size: var(--fz-lg);
     }
   }
   
-  /* Improved heading styles */
   h1, h2, h3, h4, h5, h6 {
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
     font-weight: 700;
+    color: var(--text-primary);
   }
   
-  /* Paragraph spacing */
   p {
     line-height: var(--line-height-relaxed);
     margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
   }
   
-  /* Ensure font applies to all elements */
   *, *::before, *::after {
     font-family: "Space Grotesk", "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   
-  /* Override Tailwind's default font classes */
   .font-sans {
     font-family: "Space Grotesk", "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  }
+
+  /* Glassmorphism utility */
+  .glass {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .tag {
+      padding: 0.3rem 0.8rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent-secondary);
   }
 }
 

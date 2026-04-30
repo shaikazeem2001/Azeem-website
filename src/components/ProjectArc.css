@@ -1,0 +1,150 @@
+.project-arc-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding-top: 5rem;
+  overflow: visible;
+  position: relative;
+  font-family: 'Jura', sans-serif;
+  z-index: 10;
+}
+
+.arc-wrapper {
+  --card-trans-duration: 1000ms;
+  --card-trans-easing: linear(0, 0.01 0.8%, 0.038 1.6%, 0.154 3.4%, 0.781 9.7%, 1.01 12.5%, 1.089 13.8%, 1.153 15.2%, 1.195 16.6%, 1.219 18%, 1.224 19.7%, 1.208 21.6%, 1.172 23.6%, 1.057 28.6%, 1.007 31.2%, 0.969 34.1%, 0.951 37.1%, 0.953 40.9%, 0.998 50.4%, 1.011 56%, 0.998 74.7%, 1);
+  
+  --card-border-radius: 12px;
+  --card-width: 25vmin;
+  --radius: 60vmin; 
+  --cards: 3;
+  --arc-size: 0.15;          /* distance between 3 cards */
+  --arc-center: 0.75;        /* top */
+  --arc-start: calc(var(--arc-center) - var(--arc-size) / 2);
+  --arc-shift: 0;
+  --arc-shift-delta: 0.02;
+
+  position: relative;
+  width: var(--card-width);
+  aspect-ratio: 4/6;
+}
+
+.arc-card {
+  position: absolute;
+  width: var(--card-width);
+  aspect-ratio: 4/6;
+  background: rgba(15, 20, 30, 0.9);
+  border-radius: var(--card-border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  offset-path: circle(var(--radius) at 50% 100%);
+  offset-distance: calc(
+    (var(--arc-start)
+     + (var(--card-i) - 1) * (var(--arc-size) / (var(--cards) - 1))
+     + var(--arc-shift)
+    ) * 100%
+  );
+	
+  offset-rotate: auto;
+  offset-anchor: 50% 0%;
+  transition: all var(--card-trans-duration) var(--card-trans-easing);
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+}
+
+/* Fallbacks for sibling index since standard CSS sibling-index is poorly supported */
+.arc-card:nth-child(1) { --card-i: 1; z-index: 0; }
+.arc-card:nth-child(2) { --card-i: 2; z-index: 1; }
+.arc-card:nth-child(3) { --card-i: 3; z-index: 3; }
+.arc-card:nth-child(4) { --card-i: 4; z-index: 4; }
+.arc-card:nth-child(5) { --card-i: 5; z-index: 3; }
+.arc-card:nth-child(6) { --card-i: 6; z-index: 1; }
+.arc-card:nth-child(7) { --card-i: 7; z-index: 0; }
+
+.arc-card:hover {
+  offset-anchor: 50% 10%;
+  border-color: #B6FE01;
+  box-shadow: 0 15px 40px rgba(182, 254, 1, 0.3);
+  z-index: 10;
+}
+
+.arc-card:hover + .arc-card {
+  --arc-shift: calc(var(--arc-shift-delta) * 3);  
+}
+.arc-card:hover + .arc-card + .arc-card {
+  --arc-shift: calc(var(--arc-shift-delta) * 2);   
+}
+.arc-card:hover + .arc-card + .arc-card + .arc-card {
+  --arc-shift: calc(var(--arc-shift-delta) * 1);    
+}
+
+.arc-card:has(+ .arc-card:hover) {
+  --arc-shift: calc(var(--arc-shift-delta) * -3);    
+}
+.arc-card:has(+ .arc-card + .arc-card:hover) {
+  --arc-shift: calc(var(--arc-shift-delta) * -2);    
+}
+.arc-card:has(+ .arc-card + .arc-card + .arc-card:hover) {
+  --arc-shift: calc(var(--arc-shift-delta) * -1);   
+}
+
+.arc-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.6;
+}
+
+.arc-card:hover img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.arc-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.arc-card:hover .arc-card-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.arc-card-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  color: #B6FE01;
+}
+
+.arc-card-content p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .arc-wrapper {
+    --card-width: 35vmin;
+    --radius: 80vmin;
+    --arc-size: 0.35;
+  }
+}

@@ -9,9 +9,10 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navVariants = {
-    hidden: { y: -100, opacity: 0 },
+    hidden: { y: -100, x: "-50%", opacity: 0 },
     visible: { 
       y: 0, 
+      x: "-50%",
       opacity: 1,
       transition: {
         type: "spring",
@@ -50,19 +51,16 @@ const Navbar = () => {
         className={`nav-links ${menuOpen ? "open" : ""}`}
         variants={linkVariants}
       >
-      <NavLink to="/" onClick={() => setMenuOpen(false)}>Professional</NavLink>
-
+        <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
+        <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+        <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
+        <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         <NavLink
           to="/personal"
           className={({ isActive }) => (isActive ? "active" : "")}
+          onClick={() => setMenuOpen(false)}
         >
           Personal
-        </NavLink>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          Contact
         </NavLink>
       </motion.div>
     </motion.div>

@@ -1,0 +1,69 @@
+.skills-grid-3d {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  background: transparent !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-item:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(182, 254, 1, 0.15);
+  background: transparent !important;
+  border-radius: 12px;
+}
+
+.scene {
+  width: 80px; height: 80px;
+  perspective: 600px;
+  margin-bottom: 1rem;
+}
+
+.cube {
+  width: 100%; height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 15s infinite linear;
+  transition: animation-duration 0.3s;
+}
+
+.skill-item:hover .cube {
+  animation-duration: 4s !important;
+}
+
+.cube__face {
+  position: absolute;
+  width: 80px; height: 80px;
+  background: transparent;
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.cube__face img { width: 40px; height: 40px; }
+.cube__face--front  { transform: rotateY(  0deg) translateZ(40px); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(40px); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(40px); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(40px); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(40px); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+@keyframes rotateCube {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}

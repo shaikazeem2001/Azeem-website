@@ -1,0 +1,50 @@
+.name-animation-wrapper {
+  position: relative;
+  width: 100%;
+  height: 40vh; /* Adjust as needed */
+  min-height: 250px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.ogl-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.mask {
+  position: absolute;
+  z-index: 2;
+  background: var(--bg-main); /* Mask should be background color to hide corners */
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: darken; /* Dark theme mask blend */
+  pointer-events: none; /* Let mouse interact with WebGL underneath */
+}
+
+/* Because our background is dark, the SVG mask needs to cut out the letters. 
+   If the mask background is black and the letters are white, and we use screen... wait.
+   The original CSS had: background: white; mix-blend-mode: screen; 
+   If our background is #050810, we can use background: #050810, and letters transparent,
+   or just use mask-image in CSS.
+   The provided CSS used:
+   .mask { background: white; mix-blend-mode: screen; } 
+   This works if the text should show the background through it on a white page.
+   For a dark page, we want background: #050810; mix-blend-mode: darken. 
+*/
+
+.name-animation-wrapper .mask {
+  background: var(--bg-main);
+  mix-blend-mode: darken;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align text to left since it's hero text */
+}
+
+.name-animation-wrapper .mask * {
+  color: #fff !important; /* Force text to be white to act as a clear window */
+}
