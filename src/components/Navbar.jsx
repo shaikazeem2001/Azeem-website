@@ -10,8 +10,8 @@ const Navbar = () => {
 
   const navVariants = {
     hidden: { y: -100, x: "-50%", opacity: 0 },
-    visible: { 
-      y: 0, 
+    visible: {
+      y: 0,
       x: "-50%",
       opacity: 1,
       transition: {
@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="nav"
       initial="hidden"
       animate="visible"
@@ -47,7 +47,7 @@ const Navbar = () => {
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </div>
-      <motion.div 
+      <motion.div
         className={`nav-links ${menuOpen ? "open" : ""}`}
         variants={linkVariants}
       >
