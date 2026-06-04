@@ -78,105 +78,105 @@ const GhoulProjectContainer = () => {
     });
 
     // Hover effect setup
-    // cards.forEach((card, i) => {
-    //   card.addEventListener('mouseenter', () => {
-    //     if (activeProject !== null) return;
-    //     gsap.to(card, {
-    //       y: -20,
-    //       scale: 1.05,
-    //       rotationY: -5,
-    //       rotationX: 5,
-    //       // boxShadow: `0 20px 40px rgba(0,0,0,0.4), 0 0 20px ${projectsData[i].color}40`,
-    //       duration: 0.4,
-    //       ease: "power2.out",
-    //       zIndex: 10
-    //     });
-    //   });
+    cards.forEach((card, i) => {
+      card.addEventListener('mouseenter', () => {
+        if (activeProject !== null) return;
+        gsap.to(card, {
+          y: -20,
+          scale: 1.05,
+          rotationY: -5,
+          rotationX: 5,
+          // boxShadow: `0 20px 40px rgba(0,0,0,0.4), 0 0 20px ${projectsData[i].color}40`,
+          duration: 0.4,
+          ease: "power2.out",
+          zIndex: 10
+        });
+      });
 
-    // card.addEventListener('mouseleave', () => {
-    //   if (activeProject !== null) return;
-    //   gsap.to(card, {
-    //     y: 0,
-    //     scale: 1,
-    //     rotationY: 0,
-    //     rotationX: 0,
-    //     // boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-    //     duration: 0.4,
-    //     ease: "power2.out",
-    //     zIndex: 1
-    //   });
-    // });
-  });
-}, [activeProject]);
+      card.addEventListener('mouseleave', () => {
+        if (activeProject !== null) return;
+        gsap.to(card, {
+          y: 0,
+          scale: 1,
+          rotationY: 0,
+          rotationX: 0,
+          // boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+          duration: 0.4,
+          ease: "power2.out",
+          zIndex: 1
+        });
+      });
+    });
+  }, [activeProject]);
 
-const handleCardClick = (index) => {
-  setActiveProject(projectsData[index]);
-};
+  const handleCardClick = (index) => {
+    setActiveProject(projectsData[index]);
+  };
 
-const closeProject = () => {
-  setActiveProject(null);
-};
+  const closeProject = () => {
+    setActiveProject(null);
+  };
 
-return (
-  <div className="ghoul-projects-wrapper" ref={containerRef}>
-    <GhoulSVGs />
+  return (
+    <div className="ghoul-projects-wrapper" ref={containerRef}>
+      <GhoulSVGs />
 
-    <div className="ghoul-cards-container">
-      {projectsData.map((project, index) => (
-        <div
-          key={project.id}
-          className="ghoul-card-wrap"
-          ref={el => cardsRef.current[index] = el}
-          onClick={() => handleCardClick(index)}
-        >
-          <div className="ghoul-card-inner" style={{ '--accent': project.color }}>
-            <div className="ghoul-card-bg">
-              <svg className="ghoul-card-logo"><use href={`#${project.logo}`} /></svg>
-              <div className="ghoul-card-stripes"></div>
-            </div>
-            <svg className="ghoul-avatar"><use href={`#${project.ghoul}`} /></svg>
-            <div className="ghoul-card-footer">
-              <svg className="ghoul-qr"><use href="#qr-1" /></svg>
-              <div className="ghoul-card-title">{project.title}</div>
-              <svg className="ghoul-no"><use href="#no-1" /></svg>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    {activeProject && (
-      <div className="ghoul-modal-overlay">
-        <div className="ghoul-modal-backdrop" onClick={closeProject}></div>
-        <div className="ghoul-modal-content">
-          <button className="ghoul-modal-close" onClick={closeProject}>
-            <X size={24} />
-          </button>
-          <div className="ghoul-modal-header" style={{ color: activeProject.color }}>
-            <svg className="ghoul-modal-avatar"><use href={`#${activeProject.ghoul}`} /></svg>
-            <h2>{activeProject.title}</h2>
-          </div>
-          <div className="ghoul-modal-body">
-            <p className="ghoul-modal-desc">{activeProject.desc}</p>
-            <div className="ghoul-modal-tech">
-              {activeProject.tech.map((t, i) => (
-                <span key={i} className="ghoul-tech-tag" style={{ borderColor: activeProject.color, color: activeProject.color }}>{t}</span>
-              ))}
-            </div>
-            <div className="ghoul-modal-links">
-              <a href={activeProject.github} target="_blank" rel="noopener noreferrer" className="ghoul-link-btn" style={{ background: 'rgba(255,255,255,0.1)' }}>
-                <Github size={20} /> GitHub
-              </a>
-              <a href={activeProject.demo} target="_blank" rel="noopener noreferrer" className="ghoul-link-btn" style={{ background: activeProject.color, color: '#000' }}>
-                <ExternalLink size={20} /> Live Demo
-              </a>
+      <div className="ghoul-cards-container">
+        {projectsData.map((project, index) => (
+          <div
+            key={project.id}
+            className="ghoul-card-wrap"
+            ref={el => cardsRef.current[index] = el}
+            onClick={() => handleCardClick(index)}
+          >
+            <div className="ghoul-card-inner" style={{ '--accent': project.color }}>
+              <div className="ghoul-card-bg">
+                <svg className="ghoul-card-logo"><use href={`#${project.logo}`} /></svg>
+                <div className="ghoul-card-stripes"></div>
+              </div>
+              <svg className="ghoul-avatar"><use href={`#${project.ghoul}`} /></svg>
+              <div className="ghoul-card-footer">
+                <svg className="ghoul-qr"><use href="#qr-1" /></svg>
+                <div className="ghoul-card-title">{project.title}</div>
+                <svg className="ghoul-no"><use href="#no-1" /></svg>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
-    )}
-  </div>
-);
+
+      {activeProject && (
+        <div className="ghoul-modal-overlay">
+          <div className="ghoul-modal-backdrop" onClick={closeProject}></div>
+          <div className="ghoul-modal-content">
+            <button className="ghoul-modal-close" onClick={closeProject}>
+              <X size={24} />
+            </button>
+            <div className="ghoul-modal-header" style={{ color: activeProject.color }}>
+              <svg className="ghoul-modal-avatar"><use href={`#${activeProject.ghoul}`} /></svg>
+              <h2>{activeProject.title}</h2>
+            </div>
+            <div className="ghoul-modal-body">
+              <p className="ghoul-modal-desc">{activeProject.desc}</p>
+              <div className="ghoul-modal-tech">
+                {activeProject.tech.map((t, i) => (
+                  <span key={i} className="ghoul-tech-tag" style={{ borderColor: activeProject.color, color: activeProject.color }}>{t}</span>
+                ))}
+              </div>
+              <div className="ghoul-modal-links">
+                <a href={activeProject.github} target="_blank" rel="noopener noreferrer" className="ghoul-link-btn" style={{ background: 'rgba(255,255,255,0.1)' }}>
+                  <Github size={20} /> GitHub
+                </a>
+                <a href={activeProject.demo} target="_blank" rel="noopener noreferrer" className="ghoul-link-btn" style={{ background: activeProject.color, color: '#000' }}>
+                  <ExternalLink size={20} /> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default GhoulProjectContainer;

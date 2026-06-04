@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github } from 'lucide-react';
 import './ProjectArc.css';
 
 const projectsData = [
@@ -20,6 +20,12 @@ const projectsData = [
     title: "Burger Restaurant",
     image: "/burger.gif",
     link: "https://github.com/shaikazeem2001/burger"
+  },
+  {
+    id: 4,
+    title: "Supply Chain Dashboard",
+    image: "/supply-chain.png",
+    link: "https://github.com/shaikazeem2001/supply-chain-dashboard"
   }
 ];
 

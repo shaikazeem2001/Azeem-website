@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 const Lottie = lazy(() => import("lottie-react"));
 import animationData from "../assets/coding-animation.json";
 import { motion } from "framer-motion";
+import { Download, Linkedin, Github } from "lucide-react";
 import "./Hero.css";
 import EncryptedText from "./EncryptedText";
 
@@ -60,16 +61,16 @@ const Hero = () => {
         <motion.div className="cta-buttons" variants={itemVariants}>
           <a href="#projects" className="primary-btn magnetic-btn">View Projects</a>
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="secondary-btn magnetic-btn">
-            Resume <img src="/download.png" alt="" className="btn-icon" />
+            Resume <Download size={18} className="btn-icon" />
           </a>
         </motion.div>
 
         <motion.div className="social-links" variants={itemVariants}>
           <a href="https://www.linkedin.com/in/shaik-azeem-817886233/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-            <img src="/linkedin.png" alt="LinkedIn" />
+            <Linkedin size={24} />
           </a>
           <a href="https://github.com/shaikazeem2001" target="_blank" rel="noopener noreferrer" title="GitHub">
-            <img src="/github.png" alt="GitHub" />
+            <Github size={24} />
           </a>
         </motion.div>
       </motion.div>

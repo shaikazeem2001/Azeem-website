@@ -13,13 +13,13 @@ const AnimatedBackground = () => {
         GLOBE({
           el: myRef.current,
           THREE: THREE,
-          mouseControls: true,
-          touchControls: true,
+          mouseControls: false,
+          touchControls: false,
           gyroControls: false,
           minHeight: 200.00,
           minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
+          scale: 0.80,
+          scaleMobile: 0.50,
           color: 0x3fffaf,
           size: 2.00,
           backgroundColor: 0x050810 // Match Vansh dark theme background
@@ -39,7 +39,7 @@ const AnimatedBackground = () => {
       top: 0, 
       left: 0, 
       zIndex: -1,
-      filter: 'blur(8px)',
+      filter: 'blur(4px)',
       opacity: 0.6
     }}>
     </div>
