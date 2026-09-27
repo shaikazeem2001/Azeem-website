@@ -30,20 +30,20 @@
     --letter-spacing-normal: 0;
     --letter-spacing-wide: 0.5px;
 
-    /* Theme Variables for Premium Developer Portfolio */
-    --bg-main: #050810;
+    /* Theme Variables for Black & White Gradient Theme */
+    --bg-main: #050507;
     --bg-card: rgba(255, 255, 255, 0.04);
-    --border-color: rgba(255, 255, 255, 0.08);
+    --border-color: rgba(255, 255, 255, 0.12);
 
-    /* Accents */
-    --accent-primary: #B6FE01;
-    --accent-secondary: #B6FE01;
-    --accent-tertiary: #7B61FF;
+    /* Monochrome Accents */
+    --accent-primary: #FFFFFF;
+    --accent-secondary: #E4E4E7;
+    --accent-tertiary: #A1A1AA;
 
     /* Text */
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.6);
-    --text-muted: rgba(255, 255, 255, 0.4);
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.72);
+    --text-muted: rgba(255, 255, 255, 0.45);
   }
   
   html {
@@ -52,7 +52,7 @@
   
   body {
     font-family: "Space Grotesk", "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg-main);
+    background: #050507;
     color: var(--text-primary);
     margin: 0;
     padding: 0;
@@ -93,20 +93,56 @@
   /* Glassmorphism utility */
   .glass {
       background: var(--bg-card);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-color);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   }
 
   .tag {
       padding: 0.3rem 0.8rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 50px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.8rem;
-      color: var(--accent-secondary);
+      color: #FFFFFF;
   }
 }
+
+/* Section Containers & Dividers */
+.portfolio-section-block {
+  position: relative;
+  width: 100%;
+  padding: 80px 0;
+  margin-bottom: 40px;
+}
+
+/* Gradient Section Separator Line */
+.section-divider-glow {
+  width: 80%;
+  max-width: 1200px;
+  height: 1px;
+  margin: 60px auto 20px auto;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.25) 50%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  position: relative;
+}
+
+.section-divider-glow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
 

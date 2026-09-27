@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none" style="width: 100%; height: 50px; display: block;">
+  <filter id="bottom-shadow" x="-5%" y="-10%" width="110%" height="140%">
+    <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000000" flood-opacity="0.15"/>
+  </filter>
+  <path d="M 0,0 L 0,35 Q 80,15 160,35 T 320,15 T 480,40 T 640,20 T 800,35 T 960,10 T 1120,35 T 1280,15 T 1440,30 L 1440,0 Z" fill="#C7F135" filter="url(#bottom-shadow)"/>
+</svg>

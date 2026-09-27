@@ -77,6 +77,72 @@
   margin: 0;
 }
 
+.name-wrapper {
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+  display: inline-block;
+}
+
+.funky-name {
+  font-family: 'Rubik Bubbles', 'Mochiy Pop One', 'Titan One', 'Fugaz One', cursive, sans-serif;
+  font-size: clamp(3.2rem, 9vw, 5.8rem);
+  font-weight: 900;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.funky-letter {
+  display: inline-block;
+  background: linear-gradient(180deg, #fef08a 0%, #b6fe01 40%, #84cc16 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.7));
+  transition: filter 0.2s ease;
+  transform-origin: center bottom;
+}
+
+.funky-letter:hover {
+  filter: drop-shadow(0 14px 25px rgba(182, 254, 1, 0.85)) drop-shadow(0 0 35px rgba(132, 204, 22, 0.6));
+}
+
+.funky-sparkle-left {
+  font-family: system-ui, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #b6fe01;
+  -webkit-text-fill-color: #b6fe01;
+  display: inline-block;
+  animation: funkySparkleLeft 3s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 10px rgba(182, 254, 1, 0.8));
+  margin-right: -4px;
+}
+
+.funky-sparkle-right {
+  font-family: system-ui, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #ec4899;
+  -webkit-text-fill-color: #ec4899;
+  display: inline-block;
+  animation: funkySparkleRight 3.5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.8));
+  margin-left: 2px;
+}
+
+@keyframes funkySparkleLeft {
+  0% { transform: rotate(-15deg) scale(0.9); }
+  100% { transform: rotate(15deg) scale(1.2); }
+}
+
+@keyframes funkySparkleRight {
+  0% { transform: rotate(15deg) scale(1.1); }
+  100% { transform: rotate(-15deg) scale(0.85); }
+}
+
 .name {
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.2;
@@ -448,3 +514,103 @@
   color: #B6FE01;
   text-shadow: 0 5px 25px rgba(182, 254, 1, 0.5);
 }
+
+/* Custom Hero Avatar & Backlight Glow */
+.hero-avatar-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(182, 254, 1, 0.22) 0%, rgba(123, 97, 255, 0.15) 50%, transparent 75%);
+  filter: blur(55px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-image-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  max-width: 520px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.45));
+}
+
+/* 3D Animated Fluttering Butterflies */
+.butterfly-container {
+  position: absolute;
+  perspective: 400px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.butterfly-1 {
+  top: 15%;
+  right: 12%;
+}
+
+.butterfly-2 {
+  bottom: 22%;
+  left: 8%;
+}
+
+.butterfly-body {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.butterfly-wing {
+  position: absolute;
+  top: 0;
+  width: 16px;
+  height: 22px;
+  border-radius: 50% 50% 20% 80%;
+  background: linear-gradient(135deg, #b6fe01, #ec4899, #8b5cf6);
+  box-shadow: 0 0 12px rgba(182, 254, 1, 0.7);
+}
+
+.wing-left {
+  left: 0;
+  transform-origin: right center;
+}
+
+.wing-right {
+  right: 0;
+  border-radius: 50% 50% 80% 20%;
+  transform-origin: left center;
+}
+
+.wing-cyan {
+  background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+}
+
+.butterfly-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(182, 254, 1, 0.8) 0%, transparent 70%);
+  filter: blur(4px);
+}
+
+.glow-cyan {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.8) 0%, transparent 70%);
+}
+

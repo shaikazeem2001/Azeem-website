@@ -15,10 +15,10 @@
   --card-trans-easing: cubic-bezier(0.165, 0.84, 0.44, 1);
   
   --card-border-radius: 16px;
-  --card-width: 25vmin;
+  --card-width: 22vmin;
   --radius: 65vmin; 
-  --cards: 4;
-  --arc-size: 0.22;          /* total distance covered by the 4 cards on the arc */
+  --cards: 6;
+  --arc-size: 0.38;          /* total distance covered by the 6 cards on the arc */
   --arc-center: 0.75;        /* center offset on the circular path */
   --arc-start: calc(var(--arc-center) - var(--arc-size) / 2);
   --arc-shift: 0;

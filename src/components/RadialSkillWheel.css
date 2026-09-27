@@ -1,0 +1,114 @@
+.pure-radial-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  background: transparent;
+  padding: 20px 0;
+}
+
+.radial-category-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+
+.radial-tab-btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.radial-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.radial-tab-btn.active {
+  background: var(--accent-secondary);
+  color: #000000;
+  border-color: var(--accent-secondary);
+  box-shadow: 0 4px 20px rgba(182, 254, 1, 0.3);
+  font-weight: 700;
+}
+
+.pure-radial-stage {
+  width: 100%;
+  max-width: 780px;
+  aspect-ratio: 1/1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pure-radial-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.polar-grid-circle {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-dasharray: 4 4;
+}
+
+.polar-grid-spoke {
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 1;
+}
+
+.polar-outer-boundary {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 1.5;
+}
+
+.pure-wedge-group {
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wedge-bg-slot {
+  fill: rgba(25, 32, 45, 0.7);
+  stroke: #050810;
+  stroke-width: 2;
+  transition: fill 0.3s ease;
+}
+
+.pure-wedge-group:hover .wedge-bg-slot {
+  fill: rgba(45, 56, 78, 0.9);
+}
+
+.wedge-fill-path {
+  stroke: #050810;
+  stroke-width: 1.5;
+  transition: all 0.3s ease;
+}
+
+.wedge-label-group text {
+  text-anchor: middle;
+  user-select: none;
+  pointer-events: none;
+}
+
+.wedge-percentage {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  letter-spacing: -0.02em;
+}
+
+.wedge-skill-title {
+  font-family: system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.02em;
+}

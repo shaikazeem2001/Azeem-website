@@ -11,6 +11,41 @@
   gap: 80px;
 }
 
+/* Scrapbook Aesthetic Grid Card */
+.scrapbook-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: rgba(18, 24, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 48px 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+.scrapbook-grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(182, 254, 1, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(182, 254, 1, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.scrapbook-left {
+  flex: 1.2;
+  position: relative;
+  z-index: 2;
+}
+
 .section-header {
   display: flex;
   align-items: center;
@@ -19,13 +54,13 @@
 }
 
 .icon-box {
-  background: var(--accent-red);
+  background: var(--accent-secondary);
   padding: 12px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #000;
 }
 
 .section-title {
@@ -46,7 +81,84 @@
 }
 
 .bio-text strong {
-  color: var(--accent-red);
+  color: var(--accent-secondary);
+}
+
+/* Avatar & Doodle Callouts */
+.scrapbook-avatar-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 420px;
+  z-index: 2;
+}
+
+.scrapbook-avatar-container {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrapbook-avatar-img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* Handwritten Doodle Callouts & Arrows */
+.doodle-callout {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.doodle-top-left {
+  top: 5%;
+  left: -8%;
+}
+
+.doodle-mid-left {
+  bottom: 12%;
+  left: -10%;
+}
+
+.doodle-top-right {
+  top: 8%;
+  right: -8%;
+}
+
+.doodle-bottom-right {
+  bottom: 8%;
+  right: -10%;
+}
+
+.doodle-text {
+  font-family: 'Permanent Marker', 'Caveat', cursive, sans-serif;
+  font-size: 1.1rem;
+  color: #b6fe01;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  background: rgba(5, 8, 16, 0.85);
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px dashed rgba(182, 254, 1, 0.4);
+}
+
+.doodle-arrow {
+  font-size: 1.6rem;
+  color: #b6fe01;
+  filter: drop-shadow(0 0 6px rgba(182, 254, 1, 0.8));
 }
 
 .skills-grid {
@@ -64,7 +176,7 @@
 }
 
 .skill-category:hover {
-  border-color: rgba(232, 72, 4, 0.3);
+  border-color: rgba(182, 254, 1, 0.3);
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
@@ -74,7 +186,7 @@
   align-items: center;
   gap: 12px;
   font-size: 1.3rem;
-  color: var(--accent-red);
+  color: var(--accent-secondary);
   margin-bottom: 24px;
 }
 
@@ -85,24 +197,49 @@
 }
 
 .skill-badge {
-  background: rgba(232, 72, 4, 0.05);
+  background: rgba(182, 254, 1, 0.05);
   color: var(--text-primary);
   padding: 8px 18px;
   border-radius: 50px;
   font-size: 0.9rem;
-  border: 1px solid rgba(232, 72, 4, 0.1);
+  border: 1px solid rgba(182, 254, 1, 0.1);
   transition: all 0.3s ease;
 }
 
 .skill-badge:hover {
-  background: var(--accent-red);
-  color: #fff;
-  border-color: var(--accent-red);
+  background: var(--accent-secondary);
+  color: #000;
+  border-color: var(--accent-secondary);
 }
 
 @media (max-width: 1080px) {
   .profile-section {
     padding: 100px 5%;
+  }
+
+  .doodle-top-left { left: 0; }
+  .doodle-mid-left { left: 0; }
+  .doodle-top-right { right: 0; }
+  .doodle-bottom-right { right: 0; }
+}
+
+@media (max-width: 900px) {
+  .scrapbook-card {
+    flex-direction: column-reverse;
+    padding: 36px 24px;
+    gap: 30px;
+  }
+
+  .scrapbook-avatar-wrapper {
+    min-height: auto;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .doodle-top-left, .doodle-mid-left, .doodle-top-right, .doodle-bottom-right {
+    position: relative;
+    top: auto; bottom: auto; left: auto; right: auto;
+    margin: 6px 0;
   }
 }
 
