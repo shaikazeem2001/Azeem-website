@@ -46,7 +46,7 @@ export default function Preloader({ onComplete }) {
                 <span style={greenDotStyle} />
                 <span>AZEEM SHAIK</span>
                 <span style={{ opacity: 0.3 }}>•</span>
-                <span style={{ color: "#6b7280" }}>PORTFOLIO 2026</span>
+                <span style={{ color: "#6b7280" }}>THE AZEEM GAZETTE 🗞</span>
             </motion.div>
 
             {/* Main Character Image & Floating Badges - Anchored Flush to Bottom */}
@@ -58,7 +58,7 @@ export default function Preloader({ onComplete }) {
                     transition={{ opacity: { duration: 0.5, delay: 0.2 }, y: { repeat: Infinity, duration: 3.5, ease: "easeInOut" } }}
                     style={floatingTagLeft}
                 >
-                    <span style={{ fontSize: "16px" }}>✨</span>
+                    <span style={{ fontSize: "16px" }}>🗞</span>
                     <span>Software Engineer</span>
                 </motion.div>
 
@@ -70,7 +70,7 @@ export default function Preloader({ onComplete }) {
                     style={floatingTagRight}
                 >
                     <span style={{ fontSize: "16px" }}>💻</span>
-                    <span>Full-Stack & UI/UX</span>
+                    <span>Full-Stack &amp; AI</span>
                 </motion.div>
 
                 {/* Character Image */}
@@ -90,7 +90,7 @@ export default function Preloader({ onComplete }) {
 
             {/* Bottom Right Counter */}
             <div style={numberContainerStyle}>
-                <div style={subLabelStyle}>INITIALIZING EXPERIENCE</div>
+                <div style={subLabelStyle}>INKING GAZETTE EDITION</div>
                 <div style={{ display: "flex", alignItems: "baseline", gap: "4px" }}>
                     <motion.span style={numberStyle}>{rounded}</motion.span>
                     <span style={percentStyle}>%</span>
@@ -116,7 +116,7 @@ const containerStyle = {
     alignItems: "center",
     height: "100vh",
     width: "100vw",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#f4efe1",
     position: "fixed",
     top: 0,
     left: 0,

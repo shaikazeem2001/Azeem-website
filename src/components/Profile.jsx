@@ -1,120 +1,165 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { User, Code } from "lucide-react";
+import { User, Code, FileText, CheckCircle2, Bookmark, Cpu } from "lucide-react";
 import "./Profile.css";
 import RadialSkillWheel from "./RadialSkillWheel";
+
+const SKILLS_CLASSIFIEDS = [
+  {
+    category: "LANGUAGES FOR HIRE",
+    badge: "01 / CORE CODE",
+    skills: ["Java", "Python", "TypeScript", "JavaScript", "SQL", "Bash"]
+  },
+  {
+    category: "BACKEND & ARCHITECTURE",
+    badge: "02 / TELEGRAPHS",
+    skills: ["Spring Boot", "Node.js", "Express.js", "REST APIs", "OpenAPI", "Microservices", "Event-Driven Architecture", "Kafka", "OAuth 2.0", "OpenID Connect (OIDC)", "RBAC"]
+  },
+  {
+    category: "FRONTEND TYPESETTING",
+    badge: "03 / UI DESK",
+    skills: ["React", "Next.js", "Redux Toolkit", "TanStack Query", "Tailwind CSS", "HTML5/CSS3"]
+  },
+  {
+    category: "DATABASES & VAULTS",
+    badge: "04 / DATA STORE",
+    skills: ["MongoDB", "MongoDB Atlas", "Atlas Vector Search", "PostgreSQL", "Redis", "Mongoose", "Data Modeling", "Database Indexing", "Query Optimization"]
+  },
+  {
+    category: "CLOUD & DEVOPS DISPATCH",
+    badge: "05 / INFRASTRUCTURE",
+    skills: ["AWS (S3, EC2, Lambda, EKS)", "GCP (Cloud Run, Cloud Storage, Pub/Sub)", "Docker", "Kubernetes", "Terraform", "GitHub Actions", "Jenkins", "Prometheus", "Grafana"]
+  },
+  {
+    category: "TESTING & APPLIED AI BULLETIN",
+    badge: "06 / EVALUATION",
+    skills: ["JUnit", "Mockito", "Jest", "pytest", "Playwright", "OpenAI API", "Embeddings", "Retrieval-Augmented Generation (RAG)", "Tool Calling", "Structured Outputs", "LLM Evaluation"]
+  }
+];
 
 const Profile = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <div className="profile-section" id="about" ref={ref}>
+    <div className="profile-broadsheet-section" id="about" ref={ref}>
+      {/* Section Divider Rule */}
+      <div className="news-section-rule">
+        <span className="news-section-rule-title">SECTION II — EDITORIAL DOSSIER &amp; CLASSIFIEDS</span>
+      </div>
+
       <div className="section-container">
-        {/* About Me Scrapbook Card Section */}
+        {/* Editorial Profile & Detective Pinboard */}
         <motion.div
-          className="about-content"
+          className="editorial-dossier-card news-paper-card"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="scrapbook-card">
-            {/* Grid Pattern Background */}
-            <div className="scrapbook-grid-pattern" />
-
-            {/* Left Column: Bio Text & Info */}
-            <div className="scrapbook-left">
-              <div className="section-header">
-                <div className="icon-box">
-                  <User size={24} color="#000" />
-                </div>
-                <h2 className="section-title">About Me</h2>
+          <div className="news-tape-corner" />
+          
+          <div className="dossier-grid">
+            {/* Left Column: Journalist Profile Writeup */}
+            <div className="dossier-left">
+              <div className="dossier-header-bar">
+                <span className="stamp-classified">DOSSIER #2026-AZ</span>
+                <span className="dossier-tag">SPECIAL INVESTIGATIVE PROFILE</span>
               </div>
 
-              <div className="bio-text">
+              <h2 className="dossier-main-title">
+                BACKGROUND &amp; PROFESSIONAL RECORD OF AZEEM SHAIK
+              </h2>
+
+              <div className="bio-text drop-cap">
                 <p>
-                  I am a <strong>Master's in Computer Science</strong> student and an entry-level software engineer driven by building high-performance, scalable web applications. My focus is on creating seamless user experiences through clean code and efficient backend architectures.
+                  Azeem Shaik is a <strong>Master’s in Computer &amp; Information Science</strong> candidate at the <strong>University of Alabama at Birmingham</strong> (expected graduation May 2026) and a Software Engineer with over 3 years of hands-on industry experience across MongoDB Inc. and EPAM Systems.
                 </p>
                 <p>
-                  I enjoy solving complex technical challenges and am currently looking for roles where I can contribute to impactful projects while continuing to grow as a full-stack developer. Based in <strong>India 🇮🇳</strong>, I am open to both remote and on-site opportunities.
+                  His technical record spans scalable REST API architecture, database performance tuning, event-driven Kafka stream processing, and containerized cloud deployment on AWS EKS and GCP Cloud Run. Recently, Azeem has expanded into <strong>Applied AI engineering</strong>, integrating OpenAI LLM features into production engineering consoles and building access-controlled retrieval systems backed by vector search.
                 </p>
+                <p>
+                  Currently residing in <strong>Birmingham, AL</strong>, Azeem is actively seeking software engineering opportunities and is <strong>fully open for relocation</strong> across North America.
+                </p>
+              </div>
+
+              <div className="dossier-footer-note">
+                <Bookmark size={16} /> <span>Official Academic &amp; Industry Record Verified for Relocation</span>
               </div>
             </div>
 
-            {/* Right Column: Avatar Photo with Handwritten Doodle Callouts */}
-            <div className="scrapbook-avatar-wrapper">
-              {/* Doodle Callout 1 - Top Left */}
-              <motion.div 
-                className="doodle-callout doodle-top-left"
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <span className="doodle-arrow">⤷</span>
-                <span className="doodle-text">Master's in CS 🎓</span>
-              </motion.div>
+            {/* Right Column: Detective Pinboard / Photo Clip (Image 2 style) */}
+            <div className="dossier-right-pinboard">
+              <div className="pinboard-frame news-border-box">
+                <div className="pinboard-pushpin" />
+                <span className="stamp-classified pinboard-stamp">CONFIDENTIAL</span>
 
-              {/* Doodle Callout 2 - Mid Left */}
-              <motion.div 
-                className="doodle-callout doodle-mid-left"
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              >
-                <span className="doodle-text">Scalable Web Apps ⚡</span>
-                <span className="doodle-arrow">⤶</span>
-              </motion.div>
+                <div className="pinboard-photo">
+                  <img src="/azeem-photo.jpg" alt="Azeem Shaik" />
+                  <div className="photo-label">FIG 2. DOSSIER EVIDENCE</div>
+                </div>
 
-              {/* Doodle Callout 3 - Top Right */}
-              <motion.div 
-                className="doodle-callout doodle-top-right"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-              >
-                <span className="doodle-text">Based in India 🇮🇳</span>
-                <span className="doodle-arrow">⤴</span>
-              </motion.div>
-
-              {/* Doodle Callout 4 - Bottom Right */}
-              <motion.div 
-                className="doodle-callout doodle-bottom-right"
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
-              >
-                <span className="doodle-text">Remote & On-Site 🚀</span>
-                <span className="doodle-arrow">⤵</span>
-              </motion.div>
-
-              {/* Avatar Image Container */}
-              <motion.div 
-                className="scrapbook-avatar-container"
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <img 
-                  src="/chatgpt-avatar.png" 
-                  alt="Azeem Shaik" 
-                  className="scrapbook-avatar-img"
-                />
-              </motion.div>
+                <div className="pinboard-notes">
+                  <div className="pin-note-item">
+                    <CheckCircle2 size={14} className="note-icon" />
+                    <span><strong>MS in Computer Science:</strong> UAB (May 2026)</span>
+                  </div>
+                  <div className="pin-note-item">
+                    <CheckCircle2 size={14} className="note-icon" />
+                    <span><strong>Relocation Status:</strong> Open Nationwide</span>
+                  </div>
+                  <div className="pin-note-item">
+                    <CheckCircle2 size={14} className="note-icon" />
+                    <span><strong>Core Focus:</strong> Backend, Full-Stack &amp; AI</span>
+                  </div>
+                  <div className="pin-note-item">
+                    <CheckCircle2 size={14} className="note-icon" />
+                    <span><strong>Industry Record:</strong> MongoDB &amp; EPAM Systems</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Technical Skills Section - Radial Petal Wheel & Interactive Metrics */}
+        {/* Technical Skills - Newspaper Classifieds Section */}
         <motion.div
-          className="skills-content"
+          className="classifieds-section"
+          id="skills"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="section-header">
-            <div className="icon-box">
-              <Code size={24} color="#000" />
-            </div>
-            <h2 className="section-title">Technical Skills & Proficiency</h2>
+          <div className="classifieds-header-banner">
+            <h2 className="classifieds-main-title">THE DAILY CLASSIFIED DIRECTORY</h2>
+            <div className="classifieds-sub">ENGINEERING SKILLS, TOOLKITS &amp; CAPABILITIES FOR HIRE</div>
           </div>
 
-          {/* Nightingale Radial Petal Chart & Interactive Table */}
-          <RadialSkillWheel />
+          {/* Classified Columns Grid */}
+          <div className="classifieds-grid">
+            {SKILLS_CLASSIFIEDS.map((cat, idx) => (
+              <div key={idx} className="classified-ad-box news-border-box">
+                <div className="ad-box-header">
+                  <span className="ad-badge">{cat.badge}</span>
+                  <h3 className="ad-category-title">{cat.category}</h3>
+                </div>
+                <div className="ad-skills-list">
+                  {cat.skills.map((skill, sIdx) => (
+                    <span key={sIdx} className="classified-tag">
+                      ✦ {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Interactive Skill Chart Integration */}
+          <div className="radial-wheel-newspaper-wrap">
+            <div className="wheel-banner-title">
+              <span>EXPLORE INTERACTIVE SKILL PROFICIENCY CHART</span>
+            </div>
+            <RadialSkillWheel />
+          </div>
         </motion.div>
       </div>
     </div>
@@ -122,3 +167,4 @@ const Profile = () => {
 };
 
 export default Profile;
+

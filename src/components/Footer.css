@@ -1,188 +1,167 @@
-.footer-section {
-  background: rgba(18, 17, 16, 0.8);
-  backdrop-filter: blur(15px);
-  padding: 80px 5% 40px;
-  border-top: 1px solid var(--border-color);
+/* Footer.css - Broadsheet Press & Telegraph Contact */
+.footer-newspaper-section {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto 40px auto;
+  padding: 10px 16px;
+  color: var(--ink-primary);
 }
 
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.footer-newspaper-container {
+  padding: 32px;
 }
 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 60px;
-  margin-bottom: 60px;
-}
-
-.footer-left {
-  flex: 1;
-  max-width: 600px;
-}
-
-.footer-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-}
-
-.footer-text {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+.footer-content-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 36px;
+  align-items: center;
   margin-bottom: 30px;
 }
 
-.contact-methods {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-item {
+.dispatch-header-tag {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  margin-bottom: 12px;
 }
 
-.contact-item:hover {
-  color: var(--accent-secondary);
-  transform: translateX(5px);
+.dispatch-sub {
+  font-family: var(--font-typewriter);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--ink-muted);
 }
 
-.contact-socials {
-  display: flex;
-  gap: 20px;
-  margin-top: 10px;
+.footer-newspaper-title {
+  font-family: var(--font-headline);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--ink-primary);
+  margin-bottom: 14px;
 }
 
-.social-icon {
-  color: var(--text-secondary);
-  transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-  color: var(--accent-secondary);
-  transform: translateY(-5px);
-}
-
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.download-title {
-  font-size: 1.5rem;
-  color: var(--text-primary);
+.footer-newspaper-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
   margin-bottom: 20px;
 }
 
-.footer-resume-btn {
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--accent-primary);
-  padding: 15px 32px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
+.telegraph-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-typewriter);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.contact-line-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: color 0.3s, box-shadow 0.3s;
+  color: var(--ink-primary);
+  text-decoration: none;
 }
 
-.footer-resume-btn::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 150%; height: 150%;
-  background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary));
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  z-index: -1;
+.contact-line-item:hover {
+  color: var(--stamp-red-dark);
 }
 
-.footer-resume-btn:hover::before {
-  transform: translate(-50%, -50%) scale(1);
+.footer-social-row {
+  display: flex;
+  gap: 12px;
 }
 
-.footer-resume-btn:hover {
-  color: white;
-  box-shadow: 0 0 20px rgba(182, 254, 1, 0.5);
-  border-color: transparent;
-  transform: translateY(-3px);
+.social-news-btn {
+  font-family: var(--font-subhead);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-primary);
+  background: var(--paper-tint);
+  border: 1px solid var(--ink-primary);
+  padding: 8px 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
 }
 
-.footer-bottom {
+.social-news-btn:hover {
+  background: var(--ink-primary);
+  color: var(--paper-card);
+}
+
+/* Right Action Box */
+.action-box {
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.download-heading {
+  font-family: var(--font-headline);
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--ink-primary);
+  margin: 0;
+}
+
+.download-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ink-secondary);
+  margin-bottom: 12px;
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  border-top: 2px solid var(--ink-primary);
+  padding-top: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 40px;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-family: var(--font-typewriter);
+  font-size: 12px;
+  color: var(--ink-muted);
 }
 
-.scroll-top-btn {
+.scroll-top-news-btn {
   background: transparent;
-  border: none;
-  color: var(--text-secondary);
+  border: 1px solid var(--ink-primary);
+  color: var(--ink-primary);
+  padding: 6px 12px;
+  font-family: var(--font-subhead);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 600;
+  gap: 6px;
+  transition: all 0.2s ease;
 }
 
-.scroll-top-btn:hover {
-  color: var(--accent-secondary);
+.scroll-top-news-btn:hover {
+  background: var(--ink-primary);
+  color: var(--paper-card);
 }
 
-@media (max-width: 1080px) {
-  .footer-section {
-    padding: 80px 5% 40px;
+@media (max-width: 900px) {
+  .footer-content-grid {
+    grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 768px) {
-  .footer-content {
+  .footer-bottom-bar {
     flex-direction: column;
+    gap: 12px;
     text-align: center;
-    gap: 40px;
-  }
-  
-  .footer-left {
-    max-width: 100%;
-  }
-  
-  .contact-methods {
-    align-items: center;
-  }
-  
-  .contact-socials {
-    justify-content: center;
-  }
-  
-  .footer-right {
-    align-items: center;
-  }
-  
-  .footer-bottom {
-    flex-direction: column;
-    gap: 20px;
   }
 }

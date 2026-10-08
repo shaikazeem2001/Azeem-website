@@ -1,0 +1,438 @@
+/* 3D Retro PC Desktop Workstation Projects Showcase Section */
+.funky-arcade-section {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 80px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Old PC Terminal Style Section Header */
+.arcade-terminal-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.terminal-projects-title {
+  font-family: 'Courier New', var(--font-heading), monospace;
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin: 0;
+  letter-spacing: -1px;
+  text-transform: none;
+  text-shadow: 0 0 20px rgba(132, 204, 22, 0.5), 0 0 40px rgba(132, 204, 22, 0.25);
+}
+
+/* 3D PC Model Angle Selector / Rotation Controls Bar */
+.pc-rotation-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1080px;
+  margin: 0 auto 32px auto;
+  padding: 12px 20px;
+  background: rgba(18, 16, 22, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.view-mode-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.view-pill-btn {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.view-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+}
+
+.view-pill-btn.active {
+  background: var(--color-primary);
+  color: var(--color-bg-dark);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(132, 204, 22, 0.4);
+}
+
+.rotate-3d-pc-btn {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-primary), #A3E635);
+  color: var(--color-bg-dark);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 20px rgba(132, 204, 22, 0.4);
+  transition: all 0.25s ease;
+}
+
+.rotate-3d-pc-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 30px rgba(132, 204, 22, 0.7);
+}
+
+/* Large 3D Retro PC Stage Wrapper */
+.retro-pc-stage-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navigation Arrow Buttons (< and >) */
+.pc-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(18, 16, 22, 0.9);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 40;
+  box-shadow: 0 0 25px rgba(132, 204, 22, 0.4);
+  transition: all 0.3s ease;
+}
+
+.pc-nav-left {
+  left: -28px;
+}
+
+.pc-nav-right {
+  right: -28px;
+}
+
+.pc-nav-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-bg-dark);
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 0 35px rgba(132, 204, 22, 0.7);
+}
+
+/* 3D Workstation Enclosure Frame */
+.pc-workstation-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.pc-desk-bg-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  user-select: none;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.95)) brightness(1.02);
+}
+
+/* B&W High-Contrast CRT Terminal Viewport Overlay */
+/* Strictly constrained to 3D CRT Monitor bezel area in pc-3d-front.png: left 35.35%, top 11.35%, width 26.66%, height 30.47% */
+.pc-screen-viewport.viewport-front {
+  position: absolute;
+  left: 35.35%;
+  top: 11.35%;
+  width: 26.66%;
+  height: 30.47%;
+  background: #000000;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 0 35px rgba(255, 255, 255, 0.15), 0 0 25px rgba(0, 0, 0, 0.9);
+  padding: 10px 14px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 6px;
+  color: #FFFFFF;
+}
+
+/* Screen bounds for Perspective View (45°): left 30.08%, top 21.61%, width 34.18%, height 27.60% */
+.pc-screen-viewport.viewport-perspective {
+  position: absolute;
+  left: 30.08%;
+  top: 21.61%;
+  width: 34.18%;
+  height: 27.60%;
+  transform: rotate(-6deg) skewY(-2deg);
+  background: #000000;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 0 35px rgba(255, 255, 255, 0.15), 0 0 25px rgba(0, 0, 0, 0.9);
+  padding: 10px 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 6px;
+  color: #FFFFFF;
+}
+
+.scanline-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 22, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 15;
+  opacity: 0.7;
+}
+
+.crt-screen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 65%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+  z-index: 14;
+}
+
+/* Terminal Header Bar */
+.pc-terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  z-index: 10;
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.55rem, 0.68vw, 0.68rem);
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.term-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.term-icon {
+  color: var(--color-primary);
+}
+
+.term-counter {
+  letter-spacing: 1px;
+  color: var(--color-primary);
+}
+
+/* B&W Screen Content Area */
+.pc-bw-screen-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 4px;
+  z-index: 10;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Required H1 Tag for Title */
+.project-h1-title {
+  font-family: var(--font-heading);
+  font-size: clamp(0.82rem, 1.1vw, 1.15rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Required H2 Tag for About Project Description */
+.project-h2-about {
+  font-family: var(--font-body);
+  font-size: clamp(0.6rem, 0.72vw, 0.76rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Tech Tags Container */
+.pc-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 1px;
+}
+
+.pc-bw-tag-pill {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.52rem, 0.62vw, 0.66rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+}
+
+/* B&W Action Buttons */
+.pc-bw-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.pc-bw-btn {
+  font-family: var(--font-heading);
+  font-size: clamp(0.58rem, 0.7vw, 0.72rem);
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.primary-bw-btn {
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid #FFFFFF;
+}
+
+.primary-bw-btn:hover {
+  background: var(--color-primary);
+  color: #000000;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(132, 204, 22, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Keyboard Nav Prompt */
+.pc-bottom-prompt {
+  z-index: 10;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.48rem, 0.58vw, 0.58rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* Rear Hardware Specification Overlay */
+.pc-hardware-overlay-back {
+  position: absolute;
+  left: 20%;
+  top: 25%;
+  width: 60%;
+  background: rgba(9, 9, 11, 0.92);
+  border: 1px solid var(--color-primary);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 0 40px rgba(132, 204, 22, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 25;
+  backdrop-filter: blur(12px);
+}
+
+.hw-badge {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 1px;
+}
+
+.hw-spec-item {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Bottom Pagination Dots */
+.pc-pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.pc-page-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pc-page-dot.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px var(--color-primary);
+  transform: scale(1.3);
+}
+
+@media (max-width: 900px) {
+  .pc-nav-left {
+    left: 8px;
+  }
+  .pc-nav-right {
+    right: 8px;
+  }
+}

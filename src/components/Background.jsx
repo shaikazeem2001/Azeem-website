@@ -1,78 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Background.css';
 
 const AnimatedBackground = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    let animationFrameId;
-
-    const handleMouseMove = (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-
-      animationFrameId = requestAnimationFrame(() => {
-        setMousePos({ x, y });
-      });
-    };
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
-    <div className="bw-liquid-background">
-      {/* 1. Black to White Monochrome Gradient Layer */}
-      <div className="bw-gradient-base" />
+    <div className="crumpled-paper-bg-wrapper">
+      {/* SVG Noise & Paper Crease Filter Definition */}
+      <svg className="svg-paper-filter-defs">
+        <filter id="crumpledPaperFilter" x="0%" y="0%" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="4" result="noise" />
+          <feDiffuseLighting in="noise" lightingColor="#fff" surfaceScale="2" result="light">
+            <feDistantLight azimuth="60" elevation="50" />
+          </feDiffuseLighting>
+          <feBlend mode="multiply" in="SourceGraphic" in2="light" result="blend" />
+        </filter>
+      </svg>
 
-      {/* 2. Liquid Lava Pattern Background Texture Layer */}
-      <div 
-        className="bw-liquid-pattern-layer"
-        style={{
-          transform: `translate(${mousePos.x * -12}px, ${mousePos.y * -12 + scrollY * -0.05}px)`
-        }}
-      >
-        <img src="/bg-assets/liquid_pattern_clean.png" alt="" className="liquid-pattern-img" />
-      </div>
+      {/* 1. Crumpled Parchment Base */}
+      <div className="crumpled-paper-base" />
 
-      {/* 3. Liquid Orb Asset (Floating near top right) */}
-      <div 
-        className="bw-liquid-orb-container"
-        style={{
-          transform: `translate(${mousePos.x * 25}px, ${mousePos.y * 20 + scrollY * 0.08}px) rotate(${scrollY * 0.05}deg)`
-        }}
-      >
-        <img src="/bg-assets/liquid_orb_clean.png" alt="" className="liquid-orb-img" />
-      </div>
+      {/* 2. Graph Paper Grid Lines */}
+      <div className="graph-paper-grid" />
 
-      {/* 4. Liquid Splash Asset (Floating near middle/bottom left) */}
-      <div 
-        className="bw-liquid-splash-container"
-        style={{
-          transform: `translate(${mousePos.x * -20}px, ${mousePos.y * 18 + scrollY * -0.06}px) rotate(${-15 + scrollY * -0.03}deg)`
-        }}
-      >
-        <img src="/bg-assets/liquid_splash_clean.png" alt="" className="liquid-splash-img" />
-      </div>
+      {/* 3. High-Contrast Paper Creases & Folds Shading Layer */}
+      <div className="crumpled-creases-layer" />
 
-      {/* 5. Subtle Radial Glow Orbs (Monochrome White & Silver) */}
-      <div className="monochrome-glow glow-top" />
-      <div className="monochrome-glow glow-bottom" />
+      {/* 4. Fine Paper Texture Grain & Lighting Overlay */}
+      <div className="paper-grain-overlay" />
     </div>
   );
 };
 
 export default AnimatedBackground;
+
+
+
 
 
 

@@ -1,0 +1,316 @@
+/* Rage Showcase Section matching reference Image 1 layout */
+
+.rage-showcase-section {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 60px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.rage-showcase-container {
+  background: linear-gradient(165deg, rgba(18, 16, 22, 0.95), rgba(9, 9, 11, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top Grid: Projects List (Left) + 3D Character Stage (Right) */
+.rage-top-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+  align-items: center;
+}
+
+/* Left Column: Projects Card */
+.rage-projects-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 28px;
+}
+
+.rage-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+}
+
+.folder-icon {
+  color: var(--color-primary);
+}
+
+.header-left h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.view-all-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.view-all-link:hover {
+  color: var(--color-primary);
+}
+
+/* Projects List Rows */
+.rage-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rage-project-row {
+  display: flex;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.rage-project-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(132, 204, 22, 0.4);
+  transform: translateX(6px);
+}
+
+.proj-row-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.green-icon { color: #84CC16; }
+.blue-icon { color: #38BDF8; }
+.teal-icon { color: #2DD4BF; }
+.lime-icon { color: #A3E635; }
+
+.proj-row-info {
+  flex: 1;
+}
+
+.proj-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.proj-row-top h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.row-arrow {
+  color: rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.rage-project-row:hover .row-arrow {
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.proj-row-info p {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 10px 0;
+  line-height: 1.45;
+}
+
+.proj-row-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Right Column: 3D Cyberpunk Character Stage */
+.rage-character-stage {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Neon Glow Rings & Particle FX */
+.neon-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(132, 204, 22, 0.35);
+  box-shadow: 0 0 35px rgba(132, 204, 22, 0.3), inset 0 0 25px rgba(132, 204, 22, 0.2);
+  pointer-events: none;
+}
+
+.ring-1 {
+  width: 380px;
+  height: 380px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+}
+
+.ring-2 {
+  width: 290px;
+  height: 290px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(25deg);
+  border-color: rgba(163, 230, 53, 0.5);
+}
+
+/* Floating Green Square Particles */
+.neon-particle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--color-primary);
+  border-radius: 3px;
+  box-shadow: 0 0 15px var(--color-primary);
+  opacity: 0.8;
+}
+
+.p-1 { top: 15%; right: 15%; transform: rotate(12deg); }
+.p-2 { top: 25%; left: 10%; transform: rotate(-20deg); }
+.p-3 { bottom: 20%; right: 20%; transform: rotate(45deg); width: 10px; height: 10px; }
+.p-4 { bottom: 15%; left: 15%; transform: rotate(8deg); }
+
+/* Main Character Image */
+.rage-character-floating-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.rage-character-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.7));
+}
+
+/* Bottom Row Grid (Full Width) */
+.rage-bottom-grid {
+  width: 100%;
+}
+
+/* Bottom Heatmap Card */
+.rage-heatmap-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.heatmap-header {
+  margin-bottom: 16px;
+}
+
+.heatmap-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+}
+
+.heatmap-grid-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.matrix-cols {
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.matrix-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.matrix-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  transition: background 0.3s ease;
+}
+
+.matrix-dot.active-int-0 { background: rgba(132, 204, 22, 0.3); }
+.matrix-dot.active-int-1 { background: rgba(132, 204, 22, 0.65); }
+.matrix-dot.active-int-2 { background: #84CC16; box-shadow: 0 0 8px rgba(132, 204, 22, 0.6); }
+
+.matrix-months-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+  padding: 0 4px;
+}
+
+@media (max-width: 950px) {
+  .rage-top-grid {
+    grid-template-columns: 1fr;
+  }
+  .rage-character-stage {
+    height: 360px;
+  }
+}

@@ -1,26 +1,13 @@
-import { useState, lazy, Suspense } from 'react';
-import { motion } from 'framer-motion';
-import Navbar from './components/Navbar';
-import './App.css'
-import Hero from './components/Hero';
-import Footer from './components/Footer';
-import AnimatedBackground from './components/Background';
+import React, { useState } from 'react';
 import Preloader from './components/Preloader';
-
-// Lazy load below-the-fold heavy components
-const Profile = lazy(() => import('./components/Profile'));
-const Education = lazy(() => import('./components/Education'));
-const Project = lazy(() => import('./components/Project'));
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50, scale: 0.97 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }
-  }
-};
+import FunkyNavbar from './components/FunkyNavbar';
+import FunkyHero from './components/FunkyHero';
+import FunkyStory from './components/FunkyStory';
+import FunkyRetroSkills from './components/FunkyRetroSkills';
+import FunkyGitHubAnalytics from './components/FunkyGitHubAnalytics';
+import FunkyProjectArcade from './components/FunkyProjectArcade';
+import FunkyContactFooter from './components/FunkyContactFooter';
+import './App.css';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,67 +15,19 @@ const App = () => {
   return (
     <>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
-      <div className="relative min-h-screen text-white">
-        <AnimatedBackground />
-        <Navbar />
-        <main className="portfolio-main-container">
-          {/* Section 1: Hero */}
-          <motion.section
-            id="hero"
-            initial="hidden"
-            animate="visible"
-            variants={sectionVariants}
-            className="portfolio-section-block"
-          >
-            <Hero />
-          </motion.section>
-
-          <div className="section-divider-glow" />
-
-          <Suspense fallback={<div className="loading-fallback">Loading section...</div>}>
-            {/* Section 2: About / Profile */}
-            <motion.section
-              id="about"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              variants={sectionVariants}
-              className="portfolio-section-block"
-            >
-              <Profile />
-            </motion.section>
-
-            <div className="section-divider-glow" />
-
-            {/* Section 3: Education */}
-            <motion.section
-              id="education"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              variants={sectionVariants}
-              className="portfolio-section-block"
-            >
-              <Education />
-            </motion.section>
-
-            <div className="section-divider-glow" />
-
-            {/* Section 4: Projects */}
-            <motion.section
-              id="projects"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.15 }}
-              variants={sectionVariants}
-              className="portfolio-section-block"
-            >
-              <Project />
-            </motion.section>
-          </Suspense>
+      
+      <div className="portfolio-app-root">
+        <FunkyNavbar />
+        
+        <main className="portfolio-main-wrapper">
+          <FunkyHero />
+          <FunkyStory />
+          <FunkyRetroSkills />
+          <FunkyGitHubAnalytics />
+          <FunkyProjectArcade />
         </main>
 
-        <Footer />
+        <FunkyContactFooter />
       </div>
     </>
   );

@@ -1,0 +1,301 @@
+/* Hero Editorial Light Theme matching user reference image - Full Bleed Width */
+
+.light-hero-theme {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 4rem 2rem 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  box-sizing: border-box;
+  background: #FAF9F6;
+  color: #09090B;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+}
+
+/* Top Oval Badge */
+.hero-oval-badge-wrap {
+  margin-bottom: 2rem;
+  z-index: 10;
+}
+
+.hero-oval-pill {
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 50px;
+  border: 1.5px solid #09090B;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #09090B;
+  text-transform: uppercase;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.hero-oval-pill:hover {
+  background: #09090B;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Center Editorial Poster Stage */
+.hero-poster-stage {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+/* Top Text Row: "Port" + "folio" */
+.hero-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  line-height: 0.85;
+  z-index: 2;
+  margin-bottom: 0.5rem;
+}
+
+.title-bold-sans {
+  font-family: 'Syne', var(--font-heading), sans-serif;
+  font-size: clamp(5rem, 12vw, 11rem);
+  font-weight: 800;
+  color: #09090B;
+  letter-spacing: -3px;
+}
+
+.title-script-outline {
+  font-family: 'Alex Brush', 'Playfair Display', cursive, serif;
+  font-size: clamp(5rem, 12vw, 11rem);
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1.8px #09090B;
+  margin-left: -5px;
+  font-style: italic;
+}
+
+/* Year Row with Bounding Selector Box around ONLY "20 26" */
+.hero-year-wrapper {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.text-bounding-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 48px;
+  border: 1.5px dashed #09090B;
+  border-radius: 4px;
+  background: transparent;
+}
+
+/* 8 Square Anchor Handles (Black square nodes like image) */
+.handle {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #09090B;
+  border: 1px solid #FAF9F6;
+  border-radius: 1px;
+}
+
+.handle-tl { top: -5px; left: -5px; }
+.handle-tm { top: -5px; left: 50%; transform: translateX(-50%); }
+.handle-tr { top: -5px; right: -5px; }
+.handle-ml { top: 50%; left: -5px; transform: translateY(-50%); }
+.handle-mr { top: 50%; right: -5px; transform: translateY(-50%); }
+.handle-bl { bottom: -5px; left: -5px; }
+.handle-bm { bottom: -5px; left: 50%; transform: translateX(-50%); }
+.handle-br { bottom: -5px; right: -5px; }
+
+.hero-year-numbers {
+  display: flex;
+  gap: clamp(160px, 28vw, 320px);
+  align-items: center;
+  justify-content: center;
+}
+
+.year-num {
+  font-family: 'Syne', var(--font-heading), sans-serif;
+  font-size: clamp(4.5rem, 10vw, 9rem);
+  font-weight: 700;
+  color: #09090B;
+  letter-spacing: -2px;
+  line-height: 0.9;
+}
+
+/* Positioner Wrapper isolating CSS translate(-50%, -50%) from Framer Motion transforms */
+.memoji-center-positioner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.hero-memoji-centerpiece {
+  width: clamp(230px, 34vw, 360px);
+  height: clamp(230px, 34vw, 360px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.center-memoji-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.18));
+  transition: filter 0.3s ease;
+}
+
+.hero-memoji-centerpiece:hover .center-memoji-img {
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.28));
+}
+
+/* Subtitle Tags Footer Row across bottom */
+.hero-tags-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 950px;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 1.1rem 0;
+  z-index: 10;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-footer-tag {
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #09090B;
+  text-transform: uppercase;
+}
+
+/* Action Bar & Mini Desc */
+.hero-action-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  max-width: 650px;
+  z-index: 10;
+}
+
+.hero-mini-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.hero-mini-desc strong {
+  color: #09090B;
+}
+
+.hero-btns-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-main-cta {
+  background: #09090B;
+  color: #FFFFFF !important;
+  font-weight: 800;
+  border: 2px solid #09090B;
+}
+
+.hero-main-cta:hover {
+  background: var(--color-primary);
+  color: #09090B !important;
+  border-color: var(--color-primary);
+}
+
+.dark-outline {
+  border: 2px solid #09090B;
+  color: #09090B !important;
+  background: transparent;
+}
+
+.dark-outline:hover {
+  background: #09090B;
+  color: #FFFFFF !important;
+}
+
+.hero-social-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 8px;
+}
+
+.hero-social-row a {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid #09090B;
+  color: #09090B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.hero-social-row a:hover {
+  background: #09090B;
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .title-bold-sans,
+  .title-script-outline {
+    font-size: 4rem;
+  }
+  .year-num {
+    font-size: 3.5rem;
+  }
+  .text-bounding-box {
+    padding: 8px 18px;
+  }
+  .hero-year-numbers {
+    gap: 130px;
+  }
+  .hero-memoji-centerpiece {
+    width: 210px;
+    height: 210px;
+  }
+  .hero-tags-footer-row {
+    justify-content: center;
+  }
+}

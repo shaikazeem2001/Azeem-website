@@ -1,148 +1,139 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700;800;900&family=Space+Grotesk:wght@600;700&display=swap');
 
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --fz-xxs: 12px;
-    --fz-xs: 13px;
-    --fz-sm: 14px;
-    --fz-md: 16px;
-    --fz-lg: 18px;
-    --fz-xl: 20px;
-    --fz-xxl: 24px;
-    --fz-heading: 36px;
-    
-    --spacing-xs: 8px;
-    --spacing-sm: 12px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-xxl: 48px;
-    --spacing-section: 100px;
-    
-    --line-height-tight: 1.2;
-    --line-height-normal: 1.5;
-    --line-height-relaxed: 1.7;
-    
-    --letter-spacing-tight: -0.5px;
-    --letter-spacing-normal: 0;
-    --letter-spacing-wide: 0.5px;
+    /* Color Palette: Lime Green + Dark Black Crimson Gradient + Pure White */
+    --lime-green: #84CC16;
+    --lime-bright: #A3E635;
+    --lime-glow: rgba(132, 204, 22, 0.4);
 
-    /* Theme Variables for Black & White Gradient Theme */
-    --bg-main: #050507;
-    --bg-card: rgba(255, 255, 255, 0.04);
-    --border-color: rgba(255, 255, 255, 0.12);
+    --dark-bg: #09090B;
+    --dark-card: #121016;
+    --dark-border: rgba(255, 255, 255, 0.12);
 
-    /* Monochrome Accents */
-    --accent-primary: #FFFFFF;
-    --accent-secondary: #E4E4E7;
-    --accent-tertiary: #A1A1AA;
+    --crimson-dark: #881337;
+    --crimson-bright: #BE123C;
+    --crimson-glow: rgba(190, 18, 60, 0.25);
 
-    /* Text */
-    --text-primary: #FFFFFF;
-    --text-secondary: rgba(255, 255, 255, 0.72);
-    --text-muted: rgba(255, 255, 255, 0.45);
+    --pure-white: #FFFFFF;
+    --text-muted: #A1A1AA;
+
+    /* Fonts: Modern Typography Only */
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
   }
-  
+
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
-  
+
   body {
-    font-family: "Space Grotesk", "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #050507;
-    color: var(--text-primary);
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    background-image: 
+      radial-gradient(ellipse at 50% 0%, rgba(159, 18, 57, 0.22) 0%, transparent 60%),
+      radial-gradient(circle at 90% 80%, rgba(132, 204, 22, 0.08) 0%, transparent 50%);
+    color: var(--pure-white);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-size: var(--fz-xl);
-    line-height: var(--line-height-normal);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
-  
-  @media (max-width: 768px) {
-    body {
-      font-size: var(--fz-lg);
-    }
-  }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    line-height: var(--line-height-tight);
-    letter-spacing: var(--letter-spacing-tight);
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-  
-  p {
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--spacing-md);
-    color: var(--text-secondary);
-  }
-  
-  *, *::before, *::after {
-    font-family: "Space Grotesk", "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  }
-  
-  .font-sans {
-    font-family: "Space Grotesk", "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  }
-
-  /* Glassmorphism utility */
-  .glass {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border-color);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-  }
-
-  .tag {
-      padding: 0.3rem 0.8rem;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 50px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: #FFFFFF;
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
   }
 }
 
-/* Section Containers & Dividers */
-.portfolio-section-block {
-  position: relative;
-  width: 100%;
-  padding: 80px 0;
-  margin-bottom: 40px;
+/* Modern Card & Button Utility Classes */
+.modern-card {
+  background: rgba(18, 16, 22, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Gradient Section Separator Line */
-.section-divider-glow {
-  width: 80%;
-  max-width: 1200px;
-  height: 1px;
-  margin: 60px auto 20px auto;
-  background: linear-gradient(90deg, 
-    rgba(255, 255, 255, 0) 0%, 
-    rgba(255, 255, 255, 0.25) 50%, 
-    rgba(255, 255, 255, 0) 100%
-  );
-  position: relative;
+.modern-card:hover {
+  border-color: rgba(132, 204, 22, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px var(--lime-glow);
 }
 
-.section-divider-glow::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.modern-btn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background: var(--lime-green);
+  color: #09090B;
+  border: 1px solid var(--lime-bright);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 15px var(--lime-glow);
+  transition: all 0.25s ease;
+}
+
+.modern-btn:hover {
+  background: var(--lime-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(163, 230, 53, 0.6);
+}
+
+.modern-btn-outline {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.modern-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.modern-badge {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(132, 204, 22, 0.15);
+  color: var(--lime-green);
+  border: 1px solid rgba(132, 204, 22, 0.3);
+  display: inline-block;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.crimson-badge {
+  background: rgba(190, 18, 60, 0.2);
+  color: #FB7185;
+  border-color: rgba(190, 18, 60, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
-  background: #FFFFFF;
-  border-radius: 50%;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
 }
-
-
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+::-webkit-scrollbar-thumb {
+  background: #84CC16;
+  border-radius: 4px;
+}

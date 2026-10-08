@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Contact.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import { Mail, Send, CheckCircle2 } from "lucide-react";
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -9,7 +12,7 @@ const ContactForm = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [status, setStatus] = useState("idle");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,77 +51,92 @@ const ContactForm = () => {
 
   return (
     <>
-    <motion.div
-      initial={{ opacity: 0, x: 30 }}
-      animate={{ opacity: 1.2, scale: 1 }}
-      exit={{ opacity: 0,x:-90 }}
-      transition={{ duration: 0.1 }}
-    >
-      <Navbar />
-      <div className="contact-container">
-        <h2 className="contact-title">Contact Me</h2>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <label>
-            Name
-            <div className="input-wrapper">
-              <input
-                type="text"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-              />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <Navbar />
+        <div className="contact-broadsheet-container">
+          <div className="news-paper-card contact-telegram-card">
+            <div className="news-tape-corner" />
+
+            <div className="contact-header-bar">
+              <span className="stamp-classified">TELEGRAPH WIRE</span>
+              <h2 className="contact-main-title">LETTER TO THE EDITOR &amp; TELEGRAPH</h2>
+              <div className="contact-subline">DIRECT LINE TO AZEEM SHAIK • BIRMINGHAM, AL &amp; NEW YORK</div>
             </div>
-          </label>
-          <label>
-            Email
-            <div className="input-wrapper">
-              <input
-                type="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="you@example.com"
-              />
-            </div>
-          </label>
-          <label>
-            Message
-            <div className="input-wrapper">
-              <textarea
-                className="text-area"
-                name="message"
-                required
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your message..."
-              ></textarea>
-            </div>
-            <div className="mailid">
-              <img src="/mail.png" alt="error" />
-              <email >shaikazeemcse@gmail.com</email>
-            </div>
-          </label>
-          <button type="submit" disabled={status === "sending"}>
-            {status === "sending" ? "Sending..." : "Send Message"}
-          </button>
-          {status === "success" && (
-            <p className="success-message">
-              Thank you! Your message has been sent.
-            </p>
-          )}
-          {status === "error" && (
-            <p className="error-message">
-              Oops! Something went wrong. Please try again.
-            </p>
-          )}
-        </form>
-      </div>
+
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <label>
+                <span className="field-label">1. SENDER NAME</span>
+                <div className="input-wrapper">
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your full name or publication"
+                  />
+                </div>
+              </label>
+
+              <label>
+                <span className="field-label">2. RETURN EMAIL / TELEGRAPH ADDRESS</span>
+                <div className="input-wrapper">
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@company.com"
+                  />
+                </div>
+              </label>
+
+              <label>
+                <span className="field-label">3. DISPATCH MESSAGE</span>
+                <div className="input-wrapper">
+                  <textarea
+                    className="text-area"
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Write your dispatch or inquiry details..."
+                  ></textarea>
+                </div>
+              </label>
+
+              <div className="direct-mail-note">
+                <Mail size={16} /> <span>DIRECT TELEGRAPH: shaikazeemcse@gmail.com</span>
+              </div>
+
+              <button type="submit" className="news-btn primary-news-btn submit-btn" disabled={status === "sending"}>
+                {status === "sending" ? "TRANSMITTING TELEGRAPH..." : "DISPATCH TELEGRAPH MESSAGE ➔"}
+              </button>
+
+              {status === "success" && (
+                <p className="success-message">
+                  ✓ TELEGRAPH TRANSMITTED SUCCESSFULLY! THANK YOU.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="error-message">
+                  ⚠ TRANSMISSION ERROR. PLEASE TRY DIRECT EMAIL: SHAIKAZEEMCSE@GMAIL.COM
+                </p>
+              )}
+            </form>
+          </div>
+        </div>
+        <Footer />
       </motion.div>
     </>
   );
 };
 
 export default ContactForm;
+

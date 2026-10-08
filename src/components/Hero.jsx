@@ -1,185 +1,158 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Download, Linkedin, Github } from "lucide-react";
+import { Download, Linkedin, Github, Phone, Mail, MapPin, ExternalLink } from "lucide-react";
 import "./Hero.css";
 
 const Hero = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 40, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12,
-      },
-    },
-  };
-
   return (
-    <div className="hero-container" id="home">
-      {/* Left side: Content */}
-      <motion.div
-        className="hero-content"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
+    <div className="hero-broadsheet-container" id="home">
+      {/* Front Page Lead Headline Banner */}
+      <motion.div 
+        className="hero-headline-banner"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
-        <motion.p className="p" variants={itemVariants}>Hi, I'm</motion.p>
-        <motion.h1 className="name-wrapper" variants={itemVariants}>
-          <span className="funky-name">
-            {["A", "z", "e", "e", "m"].map((letter, index) => (
-              <motion.span
-                key={index}
-                className="funky-letter"
-                whileHover={{
-                  scale: 1.35,
-                  y: -14,
-                  rotate: index % 2 === 0 ? -10 : 10,
-                  transition: { type: "spring", stiffness: 450, damping: 12 }
-                }}
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </span>
-        </motion.h1>
-        <motion.div variants={itemVariants}>
-          <h2 className="name2 type-writer sleek-hover">
-            Full-Stack Developer<span className="cursor-blink">_</span>
-          </h2>
-        </motion.div>
+        <div className="headline-tag-bar">
+          <span className="headline-tag">✦ EXCLUSIVE TECH DISPATCH ✦</span>
+        </div>
 
-        <motion.p className="hero-description" variants={itemVariants}>
-          Specializing in building scalable, user-centric web applications using
-          <span className="highlight"> React</span>,
-          <span className="highlight"> TypeScript</span>,
-          <span className="highlight"> Node.js</span>, and
-          <span className="highlight"> Three.js</span>.
-        </motion.p>
+        <h1 className="hero-main-headline">
+          SOFTWARE ENGINEER DELIVERS HIGH-PERFORMANCE BACKEND &amp; AI SOLUTIONS
+        </h1>
 
-        <motion.div className="cta-buttons" variants={itemVariants}>
-          <a href="#projects" className="primary-btn magnetic-btn">View Projects</a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="secondary-btn magnetic-btn">
-            Resume <Download size={18} className="btn-icon" />
-          </a>
-        </motion.div>
-
-        <motion.div className="social-links" variants={itemVariants}>
-          <a href="https://www.linkedin.com/in/shaik-azeem-817886233/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-            <Linkedin size={24} />
-          </a>
-          <a href="https://github.com/shaikazeem2001" target="_blank" rel="noopener noreferrer" title="GitHub">
-            <Github size={24} />
-          </a>
-        </motion.div>
+        <p className="hero-subheadline">
+          Azeem Shaik Brings 3+ Years of Experience at MongoDB &amp; EPAM Systems to Scalable Cloud Services, Database Optimization, and LLM Engineering
+        </p>
       </motion.div>
 
-      {/* Right side: Custom Hero Image with Animated Butterflies & Cat Float */}
-      <motion.div
-        className="avatar-wrapper"
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 80,
-          damping: 12,
-          delay: 0.2,
-        }}
-      >
-        {/* Animated Butterfly 1 - Top Right Flutter */}
-        <motion.div
-          className="butterfly-container butterfly-1"
-          animate={{
-            x: [0, 22, -18, 16, 0],
-            y: [0, -28, -12, -36, 0],
-            rotate: [0, 12, -10, 14, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+      {/* 3-Column Newspaper Broadsheet Grid */}
+      <div className="broadsheet-grid">
+        {/* Column 1: Lead Front Page Story & Contact Telegraph */}
+        <motion.div 
+          className="broadsheet-col col-main"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="butterfly-body">
-            <motion.span
-              className="butterfly-wing wing-left"
-              animate={{ rotateY: [0, 70, 0, 70, 0] }}
-              transition={{ duration: 0.2, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.span
-              className="butterfly-wing wing-right"
-              animate={{ rotateY: [0, -70, 0, -70, 0] }}
-              transition={{ duration: 0.2, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <div className="butterfly-glow" />
+          <div className="col-header-line">
+            <span className="col-title">THE FRONT PAGE STORY</span>
+          </div>
+
+          <p className="hero-description drop-cap">
+            Software Engineer with 3+ years of experience at EPAM Systems and MongoDB, developing backend services and React applications. Work spans API development, database performance, asynchronous processing, and automated delivery. Applied AI experience includes integrating LLM features into engineering workflows and evaluating document retrieval, cited answers, and access controls.
+          </p>
+
+          {/* Vintage Telegraph Business Card Box */}
+          <div className="telegraph-card news-border-box">
+            <div className="telegraph-header">
+              <span className="stamp-verified">VERIFIED DISPATCH</span>
+              <span className="telegraph-title">ENGINEER TELEGRAPH</span>
+            </div>
+            <div className="telegraph-grid">
+              <div className="telegraph-item">
+                <span className="telegraph-label">NAME:</span>
+                <span className="telegraph-val">Azeem Shaik</span>
+              </div>
+              <div className="telegraph-item">
+                <span className="telegraph-label">TITLE:</span>
+                <span className="telegraph-val">SOFTWARE ENGINEER</span>
+              </div>
+              <div className="telegraph-item">
+                <span className="telegraph-label">PHONE:</span>
+                <span className="telegraph-val">(205) 715-3279</span>
+              </div>
+              <div className="telegraph-item">
+                <span className="telegraph-label">EMAIL:</span>
+                <span className="telegraph-val">shaikazeemcse@gmail.com</span>
+              </div>
+              <div className="telegraph-item col-span-2">
+                <span className="telegraph-label">LOCATION:</span>
+                <span className="telegraph-val">Birmingham, AL <i>(Open for Relocation)</i></span>
+              </div>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="hero-cta-group">
+            <a href="#projects" className="news-btn primary-news-btn">
+              EXPLORE SPECIAL REPORTS ➔
+            </a>
+            <a href="/Azeem_SE.pdf" target="_blank" rel="noopener noreferrer" className="news-btn secondary-news-btn">
+              DOWNLOAD RESUME PDF <Download size={16} />
+            </a>
+            <div className="news-socials">
+              <a href="https://www.linkedin.com/in/shaik-azeem-817886233/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                <Linkedin size={20} />
+              </a>
+              <a href="https://github.com/shaikazeem2001" target="_blank" rel="noopener noreferrer" title="GitHub">
+                <Github size={20} />
+              </a>
+            </div>
           </div>
         </motion.div>
 
-        {/* Animated Butterfly 2 - Bottom Left Flutter near Cat */}
-        <motion.div
-          className="butterfly-container butterfly-2"
-          animate={{
-            x: [0, -28, 20, -14, 0],
-            y: [0, -22, -42, -18, 0],
-            rotate: [0, -14, 10, -8, 0],
-          }}
-          transition={{
-            duration: 7.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.8,
-          }}
+        {/* Column 2: Framed Press Photograph (User Photo by Window) */}
+        <motion.div 
+          className="broadsheet-col col-photo"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="butterfly-body">
-            <motion.span
-              className="butterfly-wing wing-left wing-cyan"
-              animate={{ rotateY: [0, 65, 0, 65, 0] }}
-              transition={{ duration: 0.22, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.span
-              className="butterfly-wing wing-right wing-cyan"
-              animate={{ rotateY: [0, -65, 0, -65, 0] }}
-              transition={{ duration: 0.22, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <div className="butterfly-glow glow-cyan" />
+          <div className="press-photo-frame">
+            <div className="news-tape-corner" />
+            <div className="photo-inner">
+              <img 
+                src="/azeem-photo.jpg" 
+                alt="Azeem Shaik" 
+                className="press-img"
+              />
+            </div>
+            <div className="photo-caption">
+              <strong>FIG 1. — AZEEM SHAIK.</strong> Software Engineer &amp; MS Computer Science candidate. On-location in Birmingham, AL.
+            </div>
           </div>
         </motion.div>
 
-        {/* Ambient Backlight Glow */}
-        <div className="hero-avatar-glow" />
-
-        {/* Floating Hero Avatar Container */}
-        <motion.div
-          className="hero-image-box"
-          animate={{ y: [0, -12, 0] }}
-          transition={{
-            duration: 4.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+        {/* Column 3: Breakout News Metric Boxes (Image 1 Spotify style) */}
+        <motion.div 
+          className="broadsheet-col col-metrics"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <img 
-            src="/home-azeem.png" 
-            alt="Azeem Shaik" 
-            className="hero-avatar-img"
-          />
+          <div className="news-box-metric">
+            <div className="metric-header">STATISTICAL BULLETIN #01</div>
+            <div className="metric-big">3+ YEARS</div>
+            <div className="metric-desc">Proven backend &amp; full-stack software development experience at MongoDB &amp; EPAM.</div>
+            <div className="metric-date">JUN 2022 - PRESENT</div>
+          </div>
+
+          <div className="news-box-metric">
+            <div className="metric-header">STATISTICAL BULLETIN #02</div>
+            <div className="metric-big">30% CUT</div>
+            <div className="metric-desc">Reduction in redundant database calls and 20% API response time improvement.</div>
+            <div className="metric-date">MONGODB INC.</div>
+          </div>
+
+          <div className="news-box-metric">
+            <div className="metric-header">STATISTICAL BULLETIN #03</div>
+            <div className="metric-big">110 MS</div>
+            <div className="metric-desc">Console query response time achieved down from 180 ms via compound indexing.</div>
+            <div className="metric-date">PERFORMANCE REPORT</div>
+          </div>
+
+          <div className="news-box-metric">
+            <div className="metric-header">STATISTICAL BULLETIN #04</div>
+            <div className="metric-big">84% RECALL</div>
+            <div className="metric-desc">Recall@5 benchmark accuracy for Atlas Vector Search in RAG document retrieval.</div>
+            <div className="metric-date">APPLIED AI REPORT</div>
+          </div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };
 
 export default Hero;
+
