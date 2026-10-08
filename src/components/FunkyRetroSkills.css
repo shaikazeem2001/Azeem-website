@@ -16,11 +16,11 @@
 /* Floating Character Art on Left behind/above TECHNICAL text */
 .os-character-stage-left {
   position: absolute;
-  left: -50px;
-  top: -95px;
-  width: clamp(220px, 22vw, 310px);
+  left: -40px;
+  top: -45px;
+  width: clamp(210px, 20vw, 290px);
   height: auto;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -408,6 +408,24 @@
   color: #FFFFFF;
 }
 
+.skill-right-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-score-badge {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  background: rgba(132, 204, 22, 0.15);
+  border: 1px solid rgba(132, 204, 22, 0.3);
+  padding: 2px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
 .skill-cat-label {
   font-size: 0.75rem;
   font-weight: 700;
@@ -463,8 +481,86 @@
     grid-template-columns: 1fr;
   }
   .os-character-stage-left {
-    top: -60px;
+    top: -30px;
     left: -10px;
-    width: 160px;
+    width: 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  .funky-retro-section {
+    margin: 40px auto;
+    padding: 0 12px;
+  }
+  .retro-section-header {
+    margin-bottom: 28px;
+  }
+  .retro-main-title {
+    font-size: clamp(1.6rem, 6.5vw, 2.3rem);
+    letter-spacing: -0.5px;
+  }
+  .os-character-stage-left {
+    display: none;
+  }
+  .crt-window-frame {
+    border-radius: 18px;
+    transform: none !important;
+  }
+  .crt-title-bar {
+    padding: 10px 14px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+  }
+  .crt-title-text {
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+  }
+  .crt-workspace-grid {
+    padding: 14px 10px;
+    gap: 16px;
+  }
+  .edu-box {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+  .edu-degree {
+    font-size: 1.2rem;
+  }
+  .skills-meter-container {
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+  .skills-meter-header {
+    font-size: 0.74rem;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+  }
+  .skill-title-name {
+    font-size: 0.95rem;
+  }
+  .skill-right-meta {
+    gap: 6px;
+  }
+  .skill-score-badge {
+    font-size: 0.7rem;
+    padding: 1px 6px;
+  }
+  .pixel-meter-bar {
+    gap: 3px;
+    padding: 4px;
+    border-radius: 8px;
+  }
+  .meter-segment {
+    height: 8px;
+    border-radius: 2px;
+  }
+  .retro-category-tabs {
+    gap: 6px;
+  }
+  .retro-tab-btn {
+    padding: 6px 12px;
+    font-size: 0.72rem;
+    border-radius: 10px;
   }
 }

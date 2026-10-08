@@ -1,12 +1,15 @@
 .funky-navbar-wrapper {
-  position: sticky;
+  position: fixed;
   top: 16px;
+  left: 0;
+  right: 0;
   z-index: 1000;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
 .funky-navbar-container {
@@ -14,6 +17,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
+  pointer-events: auto;
 }
 
 .navbar-brand-group {
@@ -125,33 +129,70 @@
   color: #FFFFFF;
 }
 
-@media (max-width: 1024px) {
-  .status-hire-badge {
-    display: none;
-  }
-}
-
 @media (max-width: 850px) {
   .funky-nav-menu {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: calc(100% + 10px);
+    left: 16px;
+    right: 16px;
     flex-direction: column;
-    background: #121016;
+    background: rgba(18, 16, 22, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    margin-top: 10px;
-    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+    padding: 16px;
+    border-radius: 20px;
+    pointer-events: auto;
+    z-index: 1002;
+    gap: 8px;
   }
 
   .funky-nav-menu.open {
     display: flex;
   }
 
+  .funky-nav-menu a {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+
   .mobile-hamburger-btn {
     display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .funky-navbar-wrapper {
+    top: 10px;
+    padding: 0 10px;
+  }
+
+  .funky-navbar-container {
+    padding: 8px 14px;
+    border-radius: 9999px;
+  }
+
+  .brand-title {
+    font-size: 1.15rem;
+  }
+
+  .navbar-actions {
+    gap: 8px;
+  }
+
+  .nav-resume-btn {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+
+  .sound-toggle-btn {
+    padding: 8px;
+  }
+
+  .mobile-hamburger-btn {
+    padding: 6px;
   }
 }

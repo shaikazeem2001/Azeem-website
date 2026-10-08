@@ -11,16 +11,17 @@ import './App.css';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [soundEnabled, setSoundEnabled] = useState(true);
 
   return (
     <>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
       <div className="portfolio-app-root">
-        <FunkyNavbar />
+        <FunkyNavbar soundEnabled={soundEnabled} setSoundEnabled={setSoundEnabled} />
         
         <main className="portfolio-main-wrapper">
-          <FunkyHero />
+          <FunkyHero soundEnabled={soundEnabled} />
           <FunkyStory />
           <FunkyRetroSkills />
           <FunkyGitHubAnalytics />

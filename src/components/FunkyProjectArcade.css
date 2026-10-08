@@ -436,3 +436,25 @@
     right: 8px;
   }
 }
+
+@media (max-width: 640px) {
+  .funky-arcade-section {
+    margin: 40px auto;
+    padding: 0 10px;
+  }
+  .arcade-main-title {
+    font-size: clamp(1.6rem, 6.5vw, 2.3rem);
+  }
+  .arcade-crt-outer-case {
+    padding: 10px 6px;
+    border-radius: 16px;
+  }
+  .arcade-screen-bezel {
+    padding: 10px 6px;
+    border-radius: 12px;
+  }
+  .pc-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+}

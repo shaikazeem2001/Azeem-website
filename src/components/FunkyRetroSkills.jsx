@@ -4,45 +4,49 @@ import { Monitor, GraduationCap, Minus, Square, X } from 'lucide-react';
 import './FunkyRetroSkills.css';
 
 const RETRO_SKILL_CATEGORIES = {
-  "LANGUAGES": [
-    { name: "Java (SE/EE)", category: "Core Backend", level: 9 },
-    { name: "Python", category: "AI & Scripting", level: 9 },
-    { name: "TypeScript", category: "Full-Stack", level: 9 },
-    { name: "JavaScript (ES6+)", category: "Web Apps", level: 9 },
-    { name: "SQL", category: "Relational Queries", level: 8 },
-    { name: "Bash & Shell Scripting", category: "CLI & DevOps", level: 8 }
+  "LANGUAGES & CORE": [
+    { name: "HTML/CSS", category: "Web Styling", score: 80, level: 8 },
+    { name: "JavaScript", category: "Core Web Language", score: 72, level: 7 },
+    { name: "TypeScript", category: "Type-Safe JS", score: 55, level: 6 },
+    { name: "SQL", category: "Relational Queries", score: 50, level: 5 },
+    { name: "Python", category: "AI & Scripting", score: 40, level: 4 },
+    { name: "Java", category: "Object-Oriented", score: 35, level: 4 },
+    { name: "Bash", category: "CLI & Shell", score: 25, level: 3 }
   ],
-  "BACKEND & CLOUD": [
-    { name: "Node.js / Express.js", category: "Async APIs", level: 9 },
-    { name: "Spring Boot Microservices", category: "Java Framework", level: 9 },
-    { name: "Kafka Event Streams", category: "Message Broker", level: 8 },
-    { name: "AWS (EKS, EC2, S3)", category: "Cloud Infrastructure", level: 8 },
-    { name: "GCP (Cloud Run, Storage)", category: "Container Platform", level: 8 },
-    { name: "Terraform IaC & Docker", category: "DevOps & Containers", level: 9 }
+  "FRAMEWORKS & APIS": [
+    { name: "React", category: "Frontend Engine", score: 75, level: 8 },
+    { name: "REST APIs", category: "API Architecture", score: 72, level: 7 },
+    { name: "Express.js", category: "Node Framework", score: 70, level: 7 },
+    { name: "Node.js", category: "Backend Runtime", score: 68, level: 7 },
+    { name: "Authentication/JWT", category: "Security & Auth", score: 68, level: 7 }
   ],
-  "DATABASES & VECTOR": [
-    { name: "MongoDB & Execution Plans", category: "Document DB Tuning", level: 10 },
-    { name: "Atlas Vector Search", category: "Semantic Search", level: 9 },
-    { name: "PostgreSQL Data Modeling", category: "Relational DB", level: 8 },
-    { name: "Redis In-Memory Cache", category: "Performance Store", level: 8 },
-    { name: "Compound Indexing", category: "Query Tuning", level: 9 }
+  "DATABASES & TOOLS": [
+    { name: "MongoDB/Mongoose", category: "Document Database", score: 68, level: 7 },
+    { name: "Git/GitHub", category: "Version Control", score: 65, level: 7 },
+    { name: "SQL", category: "Relational DB", score: 50, level: 5 },
+    { name: "DSA/problem solving", category: "Algorithms & Logic", score: 45, level: 5 }
   ],
-  "FRONTEND ENGINE": [
-    { name: "React Architecture", category: "UI Component System", level: 9 },
-    { name: "Next.js SSR & Editor", category: "Full-Stack React", level: 9 },
-    { name: "Tailwind CSS & Styling", category: "Responsive Layouts", level: 9 },
-    { name: "Redux & TanStack Query", category: "State & Data Fetching", level: 8 }
-  ],
-  "APPLIED AI & TESTING": [
-    { name: "OpenAI API & Tool Calling", category: "LLM Orchestration", level: 9 },
-    { name: "Vector Retrieval RAG", category: "Context Pipeline", level: 9 },
-    { name: "Structured Outputs", category: "Schema Enforcement", level: 9 },
-    { name: "JUnit, Mockito, Pytest", category: "Automated Delivery", level: 9 }
+  "ALL SKILLS SCORECARD": [
+    { name: "HTML/CSS", category: "Frontend", score: 80, level: 8 },
+    { name: "React", category: "Frontend Framework", score: 75, level: 8 },
+    { name: "JavaScript", category: "Language", score: 72, level: 7 },
+    { name: "REST APIs", category: "Backend", score: 72, level: 7 },
+    { name: "Express.js", category: "Backend Framework", score: 70, level: 7 },
+    { name: "Node.js", category: "Runtime", score: 68, level: 7 },
+    { name: "MongoDB/Mongoose", category: "Database", score: 68, level: 7 },
+    { name: "Authentication/JWT", category: "Security", score: 68, level: 7 },
+    { name: "Git/GitHub", category: "Tools & DevOps", score: 65, level: 7 },
+    { name: "TypeScript", category: "Language", score: 55, level: 6 },
+    { name: "SQL", category: "Database Language", score: 50, level: 5 },
+    { name: "DSA/problem solving", category: "Core Logic", score: 45, level: 5 },
+    { name: "Python", category: "Language", score: 40, level: 4 },
+    { name: "Java", category: "Language", score: 35, level: 4 },
+    { name: "Bash", category: "DevOps & CLI", score: 25, level: 3 }
   ]
 };
 
 const FunkyRetroSkills = () => {
-  const [activeTab, setActiveTab] = useState("LANGUAGES");
+  const [activeTab, setActiveTab] = useState("LANGUAGES & CORE");
 
   return (
     <div className="funky-retro-section" id="skills">
@@ -150,7 +154,7 @@ const FunkyRetroSkills = () => {
                 <div className="pixel-screen">
                   <span className="pixel-code-line">&gt; AZEEM_ENGINEERING_CORE</span>
                   <span className="pixel-code-line">&gt; STATUS: 100% OPERATIONAL</span>
-                  <span className="pixel-code-line">&gt; STACK: JAVA • PYTHON • NODE • MONGODB</span>
+                  <span className="pixel-code-line">&gt; STACK: JAVASCRIPT • REACT • NODE • MONGO</span>
                 </div>
                 <div className="pixel-keyboard-base">
                   <span className="kbd-light green-light"></span>
@@ -178,7 +182,7 @@ const FunkyRetroSkills = () => {
               <div className="skills-meter-container">
                 <div className="skills-meter-header">
                   <span className="meter-col-title">TECHNOLOGY / FRAMEWORK</span>
-                  <span className="meter-col-status">VISUAL PROFICIENCY METER</span>
+                  <span className="meter-col-status">SCORE &amp; PROFICIENCY METER</span>
                 </div>
 
                 <div className="skills-rows-list">
@@ -186,7 +190,10 @@ const FunkyRetroSkills = () => {
                     <div key={idx} className="skill-meter-row">
                       <div className="skill-meta-info">
                         <span className="skill-title-name">{skill.name}</span>
-                        <span className="skill-cat-label">{skill.category}</span>
+                        <div className="skill-right-meta">
+                          <span className="skill-score-badge">Score: {skill.score}</span>
+                          <span className="skill-cat-label">{skill.category}</span>
+                        </div>
                       </div>
 
                       {/* 10-Segment Pixel Meter */}

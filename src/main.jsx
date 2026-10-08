@@ -27,7 +27,6 @@ const AnimatedRoutes = () => {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Background />
       <AnimatedRoutes />
     </BrowserRouter>
   </React.StrictMode>

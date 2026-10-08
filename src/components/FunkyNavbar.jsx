@@ -2,29 +2,23 @@ import React, { useState } from 'react';
 import { Download, Sparkles, Volume2, VolumeX, Menu, X, Code2 } from 'lucide-react';
 import './FunkyNavbar.css';
 
-const FunkyNavbar = () => {
+const FunkyNavbar = ({ soundEnabled = true, setSoundEnabled }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(false);
 
   const toggleSound = () => {
-    setSoundEnabled(!soundEnabled);
+    if (setSoundEnabled) {
+      setSoundEnabled(!soundEnabled);
+    }
   };
 
   return (
     <header className="funky-navbar-wrapper">
       <div className="funky-navbar-container modern-card">
-        {/* Brand Logo & Sticker */}
+        {/* Brand Logo */}
         <div className="navbar-brand-group">
           <a href="#hero" className="brand-title">
             AZEEM<span className="brand-dot">.DEV</span>
           </a>
-          <span className="modern-badge">2026 LAB</span>
-        </div>
-
-        {/* Status Pill Badge */}
-        <div className="status-hire-badge">
-          <span className="status-dot"></span>
-          <span>AVAILABLE FOR HIRE</span>
         </div>
 
         {/* Nav Links */}

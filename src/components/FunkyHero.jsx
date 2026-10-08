@@ -1,10 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Download, ArrowRight, Github, Linkedin } from 'lucide-react';
 import './FunkyHero.css';
 
-const FunkyHero = () => {
+const FunkyHero = ({ soundEnabled = true }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const tapAudioRef = useRef(null);
+  const winkAudioRef = useRef(null);
+
+  useEffect(() => {
+    tapAudioRef.current = new Audio('/tapsound.mp3');
+    winkAudioRef.current = new Audio('/winksound.mp3');
+  }, []);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    if (soundEnabled && tapAudioRef.current) {
+      tapAudioRef.current.currentTime = 0;
+      tapAudioRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    if (soundEnabled && winkAudioRef.current) {
+      winkAudioRef.current.currentTime = 0;
+      winkAudioRef.current.play().catch(() => {});
+    }
+  };
 
   return (
     <section className="hero-editorial-section light-hero-theme" id="hero">
@@ -63,8 +86,8 @@ const FunkyHero = () => {
                   ease: "easeInOut" 
                 }}
                 whileHover={{ scale: 1.25, rotate: 3 }}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 <img 
                   src={isHovered ? "/memoji-hover.png" : "/memoji.png"} 
@@ -105,7 +128,7 @@ const FunkyHero = () => {
           <a href="#projects" className="modern-btn hero-main-cta">
             Explore 3D Arc Projects <ArrowRight size={18} />
           </a>
-          <a href="/Azeem_SE.pdf" target="_blank" rel="noopener noreferrer" className="modern-btn modern-btn-outline dark-outline">
+          <a href="/Azeem_SE.pdf" target="_blank" rel="noopener noreferrer" className="modern-btn dark-outline">
             <Download size={18} /> Resume PDF
           </a>
           <div className="hero-social-row">
