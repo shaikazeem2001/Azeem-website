@@ -54,18 +54,17 @@ const FunkyStory = () => {
         >
           <div className="bio-card-header">
             <span className="brutal-badge">DOSSIER #2026-AZ</span>
-            <span className="bio-tag">INVESTIGATIVE PROFESSIONAL RECORD</span>
           </div>
 
           <div className="bio-body-text">
             <p className="lead-para">
-              Azeem Shaik is a <strong>Software Engineer with 3+ years of experience</strong> developing scalable backend services, React applications, and applied AI systems across <strong>MongoDB Inc.</strong> and <strong>EPAM Systems</strong>.
+              I am <strong>Azeem Shaik</strong>, a <strong>Software Engineer with 3+ years of experience</strong> developing scalable backend services, <span className="tech-cream">React</span> applications, and applied <span className="tech-cream">AI systems</span> across <span className="company-brush-tag company-mongo">MongoDB Inc.</span> and <span className="company-brush-tag company-epam">EPAM Systems</span>.
             </p>
             <p>
-              Work spans API development, database performance tuning, asynchronous Kafka event processing, and containerized cloud delivery on GCP and AWS. Applied AI experience includes integrating LLM features into engineering workflows and evaluating document retrieval, cited answers, and identity access controls.
+              My work spans <span className="tech-cream">REST API development</span>, <span className="tech-cream">database performance tuning</span>, asynchronous <span className="tech-cream">Kafka</span> event processing, and containerized cloud delivery on <span className="tech-cream">GCP</span> and <span className="tech-cream">AWS</span>. In applied AI, I integrate <span className="tech-cream">LLM</span> features into engineering workflows, specializing in <span className="tech-cream">document retrieval (RAG)</span>, <span className="tech-cream">cited answers</span>, and <span className="tech-cream">identity access controls</span>.
             </p>
             <p>
-              Currently pursuing a <strong>Master’s in Computer and Information Science</strong> at the <strong>University of Alabama at Birmingham</strong> (expected May 2026), Azeem is based in Birmingham, AL, and is <strong>fully open for relocation nationwide</strong>.
+              I am currently completing my <strong>Master’s in Computer and Information Science</strong> at the <strong>University of Alabama at Birmingham</strong> (expected May 2026). Based in Birmingham, AL, I am <strong>fully open for relocation nationwide</strong>.
             </p>
           </div>
 
@@ -99,7 +98,9 @@ const FunkyStory = () => {
             >
               <div className="job-header">
                 <div className="job-title-group">
-                  <h3 className="job-company">{job.company}</h3>
+                  <h3 className={`job-company company-brush-tag ${job.company.includes('MongoDB') ? 'company-mongo' : 'company-epam'}`}>
+                    {job.company}
+                  </h3>
                   <span className="job-role">{job.role}</span>
                 </div>
                 <div className="job-period-badge">

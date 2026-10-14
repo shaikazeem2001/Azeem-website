@@ -66,6 +66,7 @@ const FunkyProjectArcade = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [currentViewIdx, setCurrentViewIdx] = useState(0); // 0: front, 1: perspective, 2: back
+  const [touchStartX, setTouchStartX] = useState(null);
 
   const handleNext = () => {
     setDirection(1);
@@ -79,6 +80,21 @@ const FunkyProjectArcade = () => {
 
   const handleRotatePC = () => {
     setCurrentViewIdx((prev) => (prev + 1) % VIEWS.length);
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return;
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (diff > 40) {
+      handleNext();
+    } else if (diff < -40) {
+      handlePrev();
+    }
+    setTouchStartX(null);
   };
 
   useEffect(() => {
@@ -132,21 +148,26 @@ const FunkyProjectArcade = () => {
           <ChevronLeft size={36} />
         </button>
 
-        {/* 3D Retro Workstation Frame Enclosure */}
-        <div className="pc-workstation-frame">
-          <motion.img 
-            key={activeView.id}
-            src={activeView.image} 
-            alt="3D Retro Workstation PC Model" 
-            className="pc-desk-bg-image"
-            initial={{ opacity: 0, rotateY: activeView.rotateY > 90 ? -45 : 45 }}
-            animate={{ opacity: 1, rotateY: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          />
+        {/* 3D Retro Workstation Frame Enclosure with Mobile Touch Swipe */}
+        <div 
+          className="pc-workstation-frame"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="pc-stage-inner">
+            <motion.img 
+              key={activeView.id}
+              src={activeView.image} 
+              alt="3D Retro Workstation PC Model" 
+              className="pc-desk-bg-image"
+              initial={{ opacity: 0, rotateY: activeView.rotateY > 90 ? -45 : 45 }}
+              animate={{ opacity: 1, rotateY: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            />
 
-          {/* High-Contrast B&W CRT Terminal Display Viewport (Only shown in Front & Perspective views) */}
-          {activeView.id !== 'back' && (
-            <div className={`pc-screen-viewport viewport-${activeView.id}`}>
+            {/* High-Contrast B&W CRT Terminal Display Viewport (Only shown in Front & Perspective views) */}
+            {activeView.id !== 'back' && (
+              <div className={`pc-screen-viewport viewport-${activeView.id}`}>
               <div className="crt-screen-overlay" />
               <div className="scanline-effect" />
 
@@ -209,9 +230,10 @@ const FunkyProjectArcade = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Bottom Keyboard Nav Prompt */}
+              {/* Bottom Keyboard/Swipe Nav Prompt */}
               <div className="pc-bottom-prompt">
-                <span>PRESS &lt; OR &gt; KEYS TO SCROLL THROUGH PROJECTS</span>
+                <span className="prompt-desktop">PRESS &lt; OR &gt; KEYS TO SCROLL THROUGH PROJECTS</span>
+                <span className="prompt-mobile">SWIPE OR TAP ARROWS TO BROWSE</span>
               </div>
             </div>
           )}
@@ -231,6 +253,7 @@ const FunkyProjectArcade = () => {
               <div className="hw-spec-item">✦ BITS COMPUTER CORP MODEL XTC-2000 SYSTEM BUS</div>
             </motion.div>
           )}
+          </div>
         </div>
 
         {/* Navigation Arrow Right > */}

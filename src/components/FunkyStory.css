@@ -77,15 +77,66 @@
 .bio-body-text p {
   font-family: var(--font-body);
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 18px;
 }
 
 .lead-para {
-  font-size: 1.2rem !important;
-  font-weight: 600;
+  font-size: 1.18rem !important;
+  font-weight: 500;
   color: #FFFFFF !important;
+  line-height: 1.8 !important;
+}
+
+/* Cream Color Text Highlight for Technologies */
+.tech-cream {
+  color: #FFF8E7; /* Rich, luminous warm cream */
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 248, 231, 0.35);
+  display: inline;
+}
+
+/* Company Name Brush Swatch Tags matching Picture 1 */
+.company-brush-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  padding: 3px 12px;
+  margin: 0 2px;
+  vertical-align: baseline;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  letter-spacing: -0.2px;
+}
+
+.company-brush-tag:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* MongoDB Inc. Green Brush Swatch */
+.company-mongo {
+  background: #00ED64;
+  color: #001E2B;
+  border-radius: 6px 14px 7px 12px;
+  box-shadow: 0 3px 12px rgba(0, 237, 100, 0.4);
+}
+
+/* EPAM Systems Cyan/Blue Brush Swatch */
+.company-epam {
+  background: #00C7F2;
+  color: #00233E;
+  border-radius: 12px 6px 14px 7px;
+  box-shadow: 0 3px 12px rgba(0, 199, 242, 0.4);
+}
+
+/* Job card company heading styling */
+h3.job-company.company-brush-tag {
+  font-size: 1.35rem;
+  padding: 6px 18px;
+  margin: 0 0 6px 0;
+  display: inline-flex;
+  align-items: center;
 }
 
 .bio-stats-row {
